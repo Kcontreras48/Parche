@@ -1,0 +1,242 @@
+[
+    {
+        "form_data": {
+            "codigo_usuario": "E9877",
+            "Especial_Campeon": "España",
+            "Especial_Subcampeon": "Francia",
+            "Especial_Tercero": "Argentina",
+            "Especial_Cuarto": "Inglaterra",
+            "Especial_BotaOro": "Kylian Mbappe",
+            "Especial_BalonOro": "Lamine Yamal",
+            "Especial_GuanteOro": "Mike Maignan",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "M0110",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "Holanda",
+            "Especial_Tercero": "Inglaterra",
+            "Especial_Cuarto": "Portugal",
+            "Especial_BotaOro": "Mbappe",
+            "Especial_BalonOro": "Olise",
+            "Especial_GuanteOro": "Pickford",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "1",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "J1234",
+            "Especial_Campeon": "Brasil",
+            "Especial_Subcampeon": "Argentina",
+            "Especial_Tercero": "España",
+            "Especial_Cuarto": "Inglaterra",
+            "Especial_BotaOro": "Neymar",
+            "Especial_BalonOro": "Neymar",
+            "Especial_GuanteOro": "Alisson Becker",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "M3467",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "Inglaterra",
+            "Especial_Tercero": "España",
+            "Especial_Cuarto": "Colombia",
+            "Especial_BotaOro": "Harry Kane",
+            "Especial_BalonOro": "Lamine Yamale",
+            "Especial_GuanteOro": "Jordan pickford",
+            "P_Mexico_vs_South_Africa_Local": "1",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "0",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "L0707",
+            "Especial_Campeon": "Colombia",
+            "Especial_Subcampeon": "Francia",
+            "Especial_Tercero": "España",
+            "Especial_Cuarto": "Argentina",
+            "Especial_BotaOro": "James Rodríguez",
+            "Especial_BalonOro": "Luis Díaz",
+            "Especial_GuanteOro": "Magniam",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "0"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "L1593",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "Argentina",
+            "Especial_Tercero": "Portugal",
+            "Especial_Cuarto": "Colombia",
+            "Especial_BotaOro": "Mbappe",
+            "Especial_BalonOro": "Luis Diaz",
+            "Especial_GuanteOro": "Dibu Martinez",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "1",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "3"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "C7534",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "España",
+            "Especial_Tercero": "Colombia",
+            "Especial_Cuarto": "Argentina",
+            "Especial_BotaOro": "Kylian Mbappé",
+            "Especial_BalonOro": "Luis Díaz",
+            "Especial_GuanteOro": "Emiliano Martínez",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "1",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "0"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "J3124",
+            "Especial_Campeon": "España",
+            "Especial_Subcampeon": "Francia",
+            "Especial_Tercero": "Colombia",
+            "Especial_Cuarto": "Marruecos",
+            "Especial_BotaOro": "Ousmane Dembélé",
+            "Especial_BalonOro": "Luis Díaz",
+            "Especial_GuanteOro": "Unai Simón",
+            "P_Mexico_vs_South_Africa_Local": "1",
+            "P_Mexico_vs_South_Africa_Visitante": "1",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "2"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "S0904",
+            "Especial_Campeon": "España",
+            "Especial_Subcampeon": "Francia",
+            "Especial_Tercero": "Argentina",
+            "Especial_Cuarto": "Brasil",
+            "Especial_BotaOro": "Cristiano ronaldo",
+            "Especial_BalonOro": "Cristiano ronaldo",
+            "Especial_GuanteOro": "Unai Simón",
+            "P_Mexico_vs_South_Africa_Local": "1",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "0",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "0"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "J2010",
+            "Especial_Campeon": "FRANCIA",
+            "Especial_Subcampeon": "ARGENTINA",
+            "Especial_Tercero": "ESPAÑA",
+            "Especial_Cuarto": "INGLATERRA",
+            "Especial_BotaOro": "KYLIAN MBAPPE",
+            "Especial_BalonOro": "OUSAMA DEMBELE",
+            "Especial_GuanteOro": "ALISON BECHER",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "S8152",
+            "Especial_Campeon": "ARGENTINA",
+            "Especial_Subcampeon": "FRANCIA",
+            "Especial_Tercero": "INGLATERRA",
+            "Especial_Cuarto": "ESPAÑA",
+            "Especial_BotaOro": "LAMIN YAMAL",
+            "Especial_BalonOro": "KYLIAN MBAPPE",
+            "Especial_GuanteOro": "EMILIANO MARTINEZ",
+            "P_Mexico_vs_South_Africa_Local": "1",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "2",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "0"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "R0612",
+            "Especial_Campeon": "España",
+            "Especial_Subcampeon": "Argentina",
+            "Especial_Tercero": "Colombia",
+            "Especial_Cuarto": "Brasil",
+            "Especial_BotaOro": "Ousmane Dembélé",
+            "Especial_BalonOro": "Luis Díaz",
+            "Especial_GuanteOro": "Unai Simón",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "1",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "0"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "S2813",
+            "Especial_Campeon": "Argentina",
+            "Especial_Subcampeon": "Brasil",
+            "Especial_Tercero": "Colombia",
+            "Especial_Cuarto": "México",
+            "Especial_BotaOro": "Lucho días",
+            "Especial_BalonOro": "Ronaldo",
+            "Especial_GuanteOro": "David ospina",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "2"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "K2468",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "España",
+            "Especial_Tercero": "Colombia",
+            "Especial_Cuarto": "Marruecos",
+            "Especial_BotaOro": "Ousmane Dembélé",
+            "Especial_BalonOro": "Luis Díaz",
+            "Especial_GuanteOro": "Mike Maignan",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "1",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    },
+    {
+        "form_data": {
+            "codigo_usuario": "O2010",
+            "Especial_Campeon": "Francia",
+            "Especial_Subcampeon": "Alemania",
+            "Especial_Tercero": "Inglaterra",
+            "Especial_Cuarto": "España",
+            "Especial_BotaOro": "Harry kane",
+            "Especial_BalonOro": "Ousmane Dembélé",
+            "Especial_GuanteOro": "Manuel Neuer",
+            "P_Mexico_vs_South_Africa_Local": "2",
+            "P_Mexico_vs_South_Africa_Visitante": "0",
+            "P_South_Korea_vs_Czech_Republic_Local": "0",
+            "P_South_Korea_vs_Czech_Republic_Visitante": "1"
+        }
+    }
+]
