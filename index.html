@@ -220,7 +220,7 @@
                     <tr><td colspan="4" style="color:#ff4c4c; text-align:center;">Error al conectar con los datos de clasificación.</td></tr>`;
             });
 
-        // 2. CONTROLADOR DE AUDITORÍA TOTAL (MUESTRA ABSOLUTAMENTE TODOS LOS PARTIDOS)
+       // 2. CONTROLADOR DE AUDITORÍA TOTAL (MUESTRA EL FIXTURE Y DETECTA PARTIDOS JUGADOS)
         fetch('resultados.json')
             .then(response => response.json())
             .then(data => {
@@ -233,9 +233,11 @@
                 }
                 
                 data.forEach(partido => {
-                    // Si el partido no está finalizado, el badge cambia a un color gris neutro
-                    let badgeColor = partido.finalizado ? '#28a745' : '#555555';
-                    let textoBadge = partido.finalizado ? `Marcador Real: ${partido.marcador_real}` : '⚽ Partido por Jugar';
+                    // CORRECCIÓN SEGURA: Si el marcador NO dice "Por jugar", es porque ya terminó y hay goles
+                    let yaSeJugo = partido.marcador_real !== "Por jugar";
+                    
+                    let badgeColor = yaSeJugo ? '#28a745' : '#555555';
+                    let textoBadge = yaSeJugo ? `Marcador Real: ${partido.marcador_real}` : '⚽ Partido por Jugar';
                     
                     let tarjetaHTML = `
                         <div class="partido-card" style="background:#252525; padding:15px; border-radius:8px; border:1px solid #333; margin-bottom:25px;">
@@ -261,16 +263,17 @@
                         let puntosPintados = "";
                         let estiloFila = "";
                         
-                        // Si el partido ya se jugó, calculamos colores de puntos ganados
-                        if (partido.finalizado) {
-                            let colorPuntos = fila.puntos_obtenidos > 0 ? '#28a745' : '#888888';
-                            puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${fila.puntos_obtenidos} pts</span>`;
+                        // Si el partido ya se jugó en la vida real, mostramos los puntos de la auditoría familiar
+                        if (yaSeJugo) {
+                            let pts = fila.puntos_obtenidos !== null ? fila.puntos_obtenidos : 0;
+                            let colorPuntos = pts > 0 ? '#28a745' : '#888888';
+                            puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${pts} pts</span>`;
                             
-                            if (fila.puntos_obtenidos === 6) {
+                            if (pts === 6) {
                                 estiloFila = 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"';
                             }
                         } else {
-                            // Si el partido no ha pasado, pintamos un estado limpio de espera
+                            // Si está pendiente, se muestra un estado limpio en gris
                             puntosPintados = `<span style="color:#6c757d; font-style:italic;">Pendiente</span>`;
                         }
                         
@@ -295,7 +298,6 @@
                 document.getElementById('lista-resultados').innerHTML = `
                     <p style="color:#ff4c4c; text-align:center;">Error al renderizar las tablas de auditoría familiar.</p>`;
             });
-    });
 </script>
 
 </body>
