@@ -174,22 +174,27 @@
 </div>
 
 <script>
-    // Función para alternar visualmente entre las pestañas (Menús)
+    // Función para cambiar de pestaña en el menú
     function switchTab(tabId, button) {
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         
-        document.getElementById(tabId).classList.add('active');
-        button.classList.add('active');
+        const targetTab = document.getElementById(tabId);
+        if (targetTab) targetTab.classList.add('active');
+        if (button) button.classList.add('active');
     }
 
     document.addEventListener("DOMContentLoaded", function() {
         
         // 1. CONTROLADOR DE LA CLASIFICACIÓN GENERAL
         fetch('clasificacion.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error("No se pudo cargar clasificacion.json");
+                return response.json();
+            })
             .then(data => {
                 const tbody = document.getElementById('tabla-clasificacion');
+                if (!tbody) return;
                 tbody.innerHTML = '';
                 
                 if (!data || data.length === 0) {
@@ -205,26 +210,37 @@
                     else if(pos === 2) posClass = 'class="pos-2 centro"';
                     else if(pos === 3) posClass = 'class="pos-3 centro"';
 
+                    let nombreFinal = jugador.nombre ? jugador.nombre : "Participante";
+                    let codigoFinal = jugador.codigo ? jugador.codigo : (jugador.codigo_usuario ? jugador.codigo_usuario : "—");
+                    let puntosFinal = jugador.puntos !== undefined ? jugador.puntos : 0;
+
                     tbody.innerHTML += `
                         <tr>
                             <td ${posClass}>${pos}</td>
-                            <td><strong>${jugador.nombre}</strong></td>
-                            <td class="centro" style="color: #888888;">${jugador.codigo}</td>
-                            <td class="centro" style="color: #28a745; font-weight: bold;">${jugador.puntos} pts</td>
+                            <td><strong>${nombreFinal}</strong></td>
+                            <td class="centro" style="color: #888888;">${codigoFinal}</td>
+                            <td class="centro" style="color: #28a745; font-weight: bold;">${puntosFinal} pts</td>
                         </tr>
                     `;
                 });
             })
             .catch(err => {
-                document.getElementById('tabla-clasificacion').innerHTML = `
-                    <tr><td colspan="4" style="color:#ff4c4c; text-align:center;">Error al conectar con los datos de clasificación.</td></tr>`;
+                console.error("Error en clasificación:", err);
+                const tbody = document.getElementById('tabla-clasificacion');
+                if (tbody) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="color:#ff4c4c; text-align:center;">Error al procesar la clasificación general.</td></tr>`;
+                }
             });
 
-       // 2. CONTROLADOR DE AUDITORÍA TOTAL (MUESTRA EL FIXTURE Y DETECTA PARTIDOS JUGADOS)
+        // 2. CONTROLADOR DE AUDITORÍA TOTAL (72 PARTIDOS)
         fetch('resultados.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error("No se pudo cargar resultados.json");
+                return response.json();
+            })
             .then(data => {
                 const lista = document.getElementById("lista-resultados");
+                if (!lista) return;
                 lista.innerHTML = '';
                 
                 if (!data || data.length === 0) {
@@ -233,9 +249,7 @@
                 }
                 
                 data.forEach(partido => {
-                    // CORRECCIÓN SEGURA: Si el marcador NO dice "Por jugar", es porque ya terminó y hay goles
                     let yaSeJugo = partido.marcador_real !== "Por jugar";
-                    
                     let badgeColor = yaSeJugo ? '#28a745' : '#555555';
                     let textoBadge = yaSeJugo ? `Marcador Real: ${partido.marcador_real}` : '⚽ Partido por Jugar';
                     
@@ -259,32 +273,32 @@
                                 <tbody>
                     `;
                     
-                    partido.tabla_auditoria.forEach(fila => {
-                        let puntosPintados = "";
-                        let estiloFila = "";
-                        
-                        // Si el partido ya se jugó en la vida real, mostramos los puntos de la auditoría familiar
-                        if (yaSeJugo) {
-                            let pts = fila.puntos_obtenidos !== null ? fila.puntos_obtenidos : 0;
-                            let colorPuntos = pts > 0 ? '#28a745' : '#888888';
-                            puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${pts} pts</span>`;
+                    if (partido.tabla_auditoria && Array.isArray(partido.tabla_auditoria)) {
+                        partido.tabla_auditoria.forEach(fila => {
+                            let puntosPintados = "";
+                            let estiloFila = "";
                             
-                            if (pts === 6) {
-                                estiloFila = 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"';
+                            if (yaSeJugo) {
+                                let pts = fila.puntos_obtenidos !== null ? fila.puntos_obtenidos : 0;
+                                let colorPuntos = pts > 0 ? '#28a745' : '#888888';
+                                puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${pts} pts</span>`;
+                                
+                                if (pts === 6) {
+                                    estiloFila = 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"';
+                                }
+                            } else {
+                                puntosPintados = `<span style="color:#6c757d; font-style:italic;">Pendiente</span>`;
                             }
-                        } else {
-                            // Si está pendiente, se muestra un estado limpio en gris
-                            puntosPintados = `<span style="color:#6c757d; font-style:italic;">Pendiente</span>`;
-                        }
-                        
-                        tarjetaHTML += `
-                            <tr ${estiloFila}>
-                                <td style="padding:10px; border-bottom:1px solid #333;"><strong>${fila.nombre}</strong></td>
-                                <td style="padding:10px; border-bottom:1px solid #333; text-align:center; color:#fff;">${fila.prediccion}</td>
-                                <td style="padding:10px; border-bottom:1px solid #333; text-align:center;">${puntosPintados}</td>
-                            </tr>
-                        `;
-                    });
+                            
+                            tarjetaHTML += `
+                                <tr ${estiloFila}>
+                                    <td style="padding:10px; border-bottom:1px solid #333;"><strong>${fila.nombre}</strong></td>
+                                    <td style="padding:10px; border-bottom:1px solid #333; text-align:center; color:#fff;">${fila.prediccion}</td>
+                                    <td style="padding:10px; border-bottom:1px solid #333; text-align:center;">${puntosPintados}</td>
+                                </tr>
+                            `;
+                        });
+                    }
                     
                     tarjetaHTML += `
                                 </tbody>
@@ -295,9 +309,13 @@
                 });
             })
             .catch(err => {
-                document.getElementById('lista-resultados').innerHTML = `
-                    <p style="color:#ff4c4c; text-align:center;">Error al renderizar las tablas de auditoría familiar.</p>`;
+                console.error("Error en auditoría:", err);
+                const lista = document.getElementById("lista-resultados");
+                if (lista) {
+                    lista.innerHTML = `<p style="color:#ff4c4c; text-align:center;">Error al renderizar las tablas de auditoría familiar.</p>`;
+                }
             });
+    });
 </script>
 
 </body>
