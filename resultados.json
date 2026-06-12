@@ -92,12 +92,12 @@
     },
     {
         "partido_titulo": "South Korea vs Czech Republic",
-        "marcador_real": "1 - 1",
+        "marcador_real": "2 - 1",
         "tabla_auditoria": [
             {
                 "nombre": "Kevin",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": 6
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Julian",
@@ -107,7 +107,7 @@
             {
                 "nombre": "Albita",
                 "prediccion": "1 - 0",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Oscar",
@@ -122,12 +122,12 @@
             {
                 "nombre": "Samuel y Salome",
                 "prediccion": "0 - 0",
-                "puntos_obtenidos": 3
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Cristian",
                 "prediccion": "1 - 0",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Luz marina",
@@ -137,12 +137,12 @@
             {
                 "nombre": "Jorge",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 6
             },
             {
                 "nombre": "Luz y Tefita",
                 "prediccion": "2 - 0",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Kiko",
@@ -152,22 +152,22 @@
             {
                 "nombre": "Chuchin",
                 "prediccion": "2 - 0",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Mateo y Erika",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 6
             },
             {
                 "nombre": "Efrita",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": 6
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Jesus",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": 0
+                "puntos_obtenidos": 6
             },
             {
                 "nombre": "Flor",
