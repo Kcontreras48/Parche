@@ -1,0 +1,107 @@
+[
+    {
+        "local": "Mexico",
+        "visitante": "South Africa",
+        "goles_local": 2,
+        "goles_visitante": 0,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "South Korea",
+        "visitante": "Czech Republic",
+        "goles_local": 1,
+        "goles_visitante": 1,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Canada",
+        "visitante": "Bosnia-Herzegovina",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "USA",
+        "visitante": "Paraguay",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Brazil",
+        "visitante": "Morocco",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Qatar",
+        "visitante": "Switzerland",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Haiti",
+        "visitante": "Scotland",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Germany",
+        "visitante": "Curaçao",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Ivory Coast",
+        "visitante": "Ecuador",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Netherlands",
+        "visitante": "Japan",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Australia",
+        "visitante": "Turkey",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Belgium",
+        "visitante": "Egypt",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Saudi Arabia",
+        "visitante": "Uruguay",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Spain",
+        "visitante": "Cape Verde",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    },
+    {
+        "local": "Sweden",
+        "visitante": "Tunisia",
+        "goles_local": null,
+        "goles_visitante": null,
+        "info_partido": "Fase de Grupos"
+    }
+]
