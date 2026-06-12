@@ -6,6 +6,7 @@
     <title>Dashboard - El Parche Mundialista</title>
     <link rel="icon" type="image/png" href="icono.png">
     <style>
+        /* PALETA DE COLORES OSCUROS */
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -25,9 +26,14 @@
             text-align: center;
             margin-bottom: 25px;
         }
-        .header-section h1 { margin: 0; color: #ffffff; font-size: 28px; }
+        .header-section h1 { 
+            margin: 0; 
+            color: #ffffff; 
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
         
-        /* PESTAÑAS (MENÚS) */
+        /* ESTILOS DE LAS PESTAÑAS (MENÚS) */
         .tabs {
             display: flex;
             justify-content: center;
@@ -47,167 +53,235 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
-        .tab-btn:hover { background: #3a3a3a; color: #ffffff; }
+        .tab-btn:hover { 
+            background: #3a3a3a; 
+            color: #ffffff; 
+        }
         .tab-btn.active {
             background: #28a745;
             color: white;
             box-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);
         }
         
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        .tab-content { 
+            display: none; 
+        }
+        .tab-content.active { 
+            display: block; 
+        }
 
-        /* TABLA DE CLASIFICACIÓN */
+        /* ESTILOS DE LAS TABLAS (CLASIFICACIÓN Y AUDITORÍA) */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
-            background: #252525;
-            border-radius: 8px;
+            background: #1e1e1e;
+            border-radius: 6px;
             overflow: hidden;
         }
         th, td {
-            padding: 14px;
+            padding: 12px 14px;
             text-align: left;
             border-bottom: 1px solid #333;
         }
-        th { background-color: #2c2c2c; color: #ffffff; font-weight: bold; }
-        td.centro, th.centro { text-align: center; }
-        tr:hover { background-color: #2e2e2e; }
+        th { 
+            background-color: #2c2c2c; 
+            color: #ffffff; 
+            font-weight: bold; 
+        }
+        td.centro, th.centro { 
+            text-align: center; 
+        }
+        tr:hover { 
+            background-color: #2e2e2e; 
+        }
         
-        /* Podios */
+        /* Estilos de las Posiciones del Podio */
         .pos-1 { color: #ffd700; font-weight: bold; } 
         .pos-2 { color: #c0c0c0; font-weight: bold; } 
         .pos-3 { color: #cd7f32; font-weight: bold; } 
 
-        /* TARJETAS DE RESULTADOS */
+        /* TARJETAS DE RESULTADOS REALES (CONTENEDORES) */
         .partido-card {
             background: #252525;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
             border-radius: 8px;
             border: 1px solid #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .partido-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .equipo { text-align: center; width: 35%; font-weight: bold; }
-        .resultado-marcador {
-            font-size: 22px;
-            font-weight: bold;
-            background: #121212;
-            padding: 8px 16px;
-            border-radius: 5px;
-            border: 1px solid #444;
-            letter-spacing: 5px;
+        .partido-header {
             text-align: center;
+            margin-bottom: 15px;
         }
-        .info-fecha { text-align: center; font-size: 12px; color: #888888; margin-top: 10px; }
-        .loading { text-align: center; color: #888; padding: 20px; }
+        .partido-header h3 {
+            margin: 5px 0;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .badge-resultado {
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .loading { 
+            text-align: center; 
+            color: #888888; 
+            padding: 20px; 
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header-section">
-        <h1>📊 Panel de Control Oficial</h1>
+        <h1>📊 Panel de Control Oficial - El Parche Mundialista</h1>
     </div>
 
     <div class="tabs">
         <button class="tab-btn active" onclick="switchTab('clasificacion-tab', this)">🏆 Clasificación</button>
-        <button class="tab-btn" onclick="switchTab('resultados-tab', this)">⚽ Resultados Reales</button>
+        <button class="tab-btn" onclick="switchTab('resultados-tab', this)">👁️ Auditoría por Partido</button>
     </div>
 
     <div id="clasificacion-tab" class="tab-content active">
         <table>
             <thead>
                 <tr>
-                    <th class="centro" style="width: 12%;">Pos</th>
+                    <th class="centro" style="width: 12%;">Posición</th>
                     <th style="width: 48%;">Participante</th>
                     <th class="centro" style="width: 20%;">Código</th>
-                    <th class="centro" style="width: 20%;">Puntos</th>
+                    <th class="centro" style="width: 20%;">Puntos Totales</th>
                 </tr>
             </thead>
             <tbody id="tabla-clasificacion">
-                <tr><td colspan="4" class="loading">Cargando clasificación...</td></tr>
+                <tr><td colspan="4" class="loading">Cargando clasificación general...</td></tr>
             </tbody>
         </table>
     </div>
 
     <div id="resultados-tab" class="tab-content">
         <div id="lista-resultados">
-            <p class="loading">Cargando resultados de los partidos...</p>
+            <p class="loading">Cargando planillas de auditoría de los partidos...</p>
         </div>
     </div>
 </div>
 
 <script>
+    // Función para alternar visualmente entre las pestañas (Menús)
     function switchTab(tabId, button) {
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        
         document.getElementById(tabId).classList.add('active');
         button.classList.add('active');
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-        // Cargar archivo JSON de clasificación
+        
+        // 1. CONTROLADOR DE LA CLASIFICACIÓN GENERAL
         fetch('clasificacion.json')
             .then(response => response.json())
             .then(data => {
                 const tbody = document.getElementById('tabla-clasificacion');
                 tbody.innerHTML = '';
                 
+                if (!data || data.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="loading">No hay datos de clasificación registrados.</td></tr>`;
+                    return;
+                }
+                
                 data.forEach((jugador, index) => {
                     const pos = index + 1;
-                    let posClass = '';
+                    let posClass = 'class="centro"';
+                    
+                    // Resaltar colores del podio de la familia/amigos
                     if(pos === 1) posClass = 'class="pos-1 centro"';
                     else if(pos === 2) posClass = 'class="pos-2 centro"';
                     else if(pos === 3) posClass = 'class="pos-3 centro"';
-                    else posClass = 'class="centro"';
 
                     tbody.innerHTML += `
                         <tr>
                             <td ${posClass}>${pos}</td>
                             <td><strong>${jugador.nombre}</strong></td>
-                            <td class="centro" style="color: #888;">${jugador.codigo}</td>
+                            <td class="centro" style="color: #888888;">${jugador.codigo}</td>
                             <td class="centro" style="color: #28a745; font-weight: bold;">${jugador.puntos} pts</td>
                         </tr>
                     `;
                 });
             })
             .catch(err => {
-                document.getElementById('tabla-clasificacion').innerHTML = `<tr><td colspan="4" style="color:#ff4c4c; text-align:center;">No se pudo cargar la clasificación.</td></tr>`;
+                document.getElementById('tabla-clasificacion').innerHTML = `
+                    <tr><td colspan="4" style="color:#ff4c4c; text-align:center;">Error al conectar con los datos de clasificación.</td></tr>`;
             });
 
-        // Cargar archivo JSON de resultados reales
+        // 2. CONTROLADOR DE AUDITORÍA DETALLADA POR PARTIDO TERMINADO
         fetch('resultados.json')
             .then(response => response.json())
             .then(data => {
-                const lista = document.getElementById('lista-resultados');
+                const lista = document.getElementById("lista-resultados");
                 lista.innerHTML = '';
                 
+                if (!data || data.length === 0) {
+                    lista.innerHTML = `<p class="loading">Las planillas de auditoría detalladas aparecerán cuando finalice el primer partido.</p>`;
+                    return;
+                }
+                
                 data.forEach(partido => {
-                    const golesL = partido.goles_local !== null ? partido.goles_local : '-';
-                    const golesV = partido.goles_visitante !== null ? partido.goles_visitante : '-';
-
-                    lista.innerHTML += `
+                    let tarjetaHTML = `
                         <div class="partido-card">
-                            <div class="partido-row">
-                                <div class="equipo">${partido.local}</div>
-                                <div class="resultado-marcador">${golesL} ${golesV}</div>
-                                <div class="equipo">${partido.visitante}</div>
+                            <div class="partido-header">
+                                <h3>⚽ ${partido.partido_titulo}</h3>
+                                <span class="badge-resultado">Marcador Real: ${partido.marcador_real}</span>
                             </div>
-                            <div class="info-fecha">📅 ${partido.info_partido}</div>
+                            
+                            <table>
+                                <thead>
+                                    <tr style="background:#2c2c2c; color:white;">
+                                        <th style="padding:10px;">Participante</th>
+                                        <th style="padding:10px; text-align:center;">Predicción</th>
+                                        <th style="padding:10px; text-align:center;">Puntos Ganados</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    `;
+                    
+                    // Iterar por cada una de las 18 personas que apostaron en este encuentro
+                    partido.tabla_auditoria.forEach(fila => {
+                        let colorPuntos = fila.puntos_obtenidos > 0 ? '#28a745' : '#888888';
+                        let estiloPleno = fila.puntos_obtenidos === 6 ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
+                        
+                        tarjetaHTML += `
+                            <tr ${estiloPleno}>
+                                <td style="padding:10px; border-bottom:1px solid #333;"><strong>${fila.nombre}</strong></td>
+                                <td style="padding:10px; border-bottom:1px solid #333; text-align:center;">${fila.prediccion}</td>
+                                <td style="padding:10px; border-bottom:1px solid #333; text-align:center; color:${colorPuntos}; font-weight:bold;">
+                                    +${fila.puntos_obtenidos} pts
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    tarjetaHTML += `
+                                </tbody>
+                            </table>
                         </div>
                     `;
+                    lista.innerHTML += tarjetaHTML;
                 });
             })
             .catch(err => {
-                document.getElementById('lista-resultados').innerHTML = `<p style="color:#ff4c4c; text-align:center;">No se pudieron cargar los resultados.</p>`;
+                document.getElementById('lista-resultados').innerHTML = `
+                    <p style="color:#ff4c4c; text-align:center;">Error al renderizar las tablas de auditoría familiar.</p>`;
             });
     });
 </script>
+
 </body>
 </html>
