@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - El Parche Mundialista</title>
+    <link rel="icon" type="image/png" href="icono.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header-section h1 { margin: 0; color: #ffffff; font-size: 28px; }
+        
+        /* PESTAÑAS (MENÚS) */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            background: #2c2c2c;
+            color: #aaaaaa;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .tab-btn:hover { background: #3a3a3a; color: #ffffff; }
+        .tab-btn.active {
+            background: #28a745;
+            color: white;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);
+        }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* TABLA DE CLASIFICACIÓN */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: #252525;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th { background-color: #2c2c2c; color: #ffffff; font-weight: bold; }
+        td.centro, th.centro { text-align: center; }
+        tr:hover { background-color: #2e2e2e; }
+        
+        /* Podios */
+        .pos-1 { color: #ffd700; font-weight: bold; } 
+        .pos-2 { color: #c0c0c0; font-weight: bold; } 
+        .pos-3 { color: #cd7f32; font-weight: bold; } 
+
+        /* TARJETAS DE RESULTADOS */
+        .partido-card {
+            background: #252525;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .partido-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .equipo { text-align: center; width: 35%; font-weight: bold; }
+        .resultado-marcador {
+            font-size: 22px;
+            font-weight: bold;
+            background: #121212;
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+        .info-fecha { text-align: center; font-size: 12px; color: #888888; margin-top: 10px; }
+        .loading { text-align: center; color: #888; padding: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h1>📊 Panel de Control Oficial</h1>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('clasificacion-tab', this)">🏆 Clasificación</button>
+        <button class="tab-btn" onclick="switchTab('resultados-tab', this)">⚽ Resultados Reales</button>
+    </div>
+
+    <div id="clasificacion-tab" class="tab-content active">
+        <table>
+            <thead>
+                <tr>
+                    <th class="centro" style="width: 12%;">Pos</th>
+                    <th style="width: 48%;">Participante</th>
+                    <th class="centro" style="width: 20%;">Código</th>
+                    <th class="centro" style="width: 20%;">Puntos</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-clasificacion">
+                <tr><td colspan="4" class="loading">Cargando clasificación...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="resultados-tab" class="tab-content">
+        <div id="lista-resultados">
+            <p class="loading">Cargando resultados de los partidos...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId, button) {
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        button.classList.add('active');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Cargar archivo JSON de clasificación
+        fetch('clasificacion.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('tabla-clasificacion');
+                tbody.innerHTML = '';
+                
+                data.forEach((jugador, index) => {
+                    const pos = index + 1;
+                    let posClass = '';
+                    if(pos === 1) posClass = 'class="pos-1 centro"';
+                    else if(pos === 2) posClass = 'class="pos-2 centro"';
+                    else if(pos === 3) posClass = 'class="pos-3 centro"';
+                    else posClass = 'class="centro"';
+
+                    tbody.innerHTML += `
+                        <tr>
+                            <td ${posClass}>${pos}</td>
+                            <td><strong>${jugador.nombre}</strong></td>
+                            <td class="centro" style="color: #888;">${jugador.codigo}</td>
+                            <td class="centro" style="color: #28a745; font-weight: bold;">${jugador.puntos} pts</td>
+                        </tr>
+                    `;
+                });
+            })
+            .catch(err => {
+                document.getElementById('tabla-clasificacion').innerHTML = `<tr><td colspan="4" style="color:#ff4c4c; text-align:center;">No se pudo cargar la clasificación.</td></tr>`;
+            });
+
+        // Cargar archivo JSON de resultados reales
+        fetch('resultados.json')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('lista-resultados');
+                lista.innerHTML = '';
+                
+                data.forEach(partido => {
+                    const golesL = partido.goles_local !== null ? partido.goles_local : '-';
+                    const golesV = partido.goles_visitante !== null ? partido.goles_visitante : '-';
+
+                    lista.innerHTML += `
+                        <div class="partido-card">
+                            <div class="partido-row">
+                                <div class="equipo">${partido.local}</div>
+                                <div class="resultado-marcador">${golesL} ${golesV}</div>
+                                <div class="equipo">${partido.visitante}</div>
+                            </div>
+                            <div class="info-fecha">📅 ${partido.info_partido}</div>
+                        </div>
+                    `;
+                });
+            })
+            .catch(err => {
+                document.getElementById('lista-resultados').innerHTML = `<p style="color:#ff4c4c; text-align:center;">No se pudieron cargar los resultados.</p>`;
+            });
+    });
+</script>
+</body>
+</html>
