@@ -1,1 +1,184 @@
-[]
+[
+    {
+        "partido_titulo": "Mexico vs South Africa",
+        "marcador_real": "2 - 0",
+        "tabla_auditoria": [
+            {
+                "nombre": "Kevin",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Julian",
+                "prediccion": "1 - 1",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Albita",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Oscar",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Chape",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Samuel y Salome",
+                "prediccion": "1 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Cristian",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Luz marina",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Jorge",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Luz y Tefita",
+                "prediccion": "1 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Kiko",
+                "prediccion": "No envió",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Chuchin",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Mateo y Erika",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Efrita",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Jesus",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Flor",
+                "prediccion": "No envió",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Matias y Dilan",
+                "prediccion": "1 - 0",
+                "puntos_obtenidos": 3
+            }
+        ]
+    },
+    {
+        "partido_titulo": "South Korea vs Czech Republic",
+        "marcador_real": "2 - 1",
+        "tabla_auditoria": [
+            {
+                "nombre": "Kevin",
+                "prediccion": "1 - 1",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Julian",
+                "prediccion": "1 - 2",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Albita",
+                "prediccion": "1 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Oscar",
+                "prediccion": "0 - 1",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Chape",
+                "prediccion": "1 - 2",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Samuel y Salome",
+                "prediccion": "0 - 0",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Cristian",
+                "prediccion": "1 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Luz marina",
+                "prediccion": "2 - 3",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Jorge",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Luz y Tefita",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Kiko",
+                "prediccion": "No envió",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Chuchin",
+                "prediccion": "2 - 0",
+                "puntos_obtenidos": 3
+            },
+            {
+                "nombre": "Mateo y Erika",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Efrita",
+                "prediccion": "1 - 1",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Jesus",
+                "prediccion": "2 - 1",
+                "puntos_obtenidos": 6
+            },
+            {
+                "nombre": "Flor",
+                "prediccion": "No envió",
+                "puntos_obtenidos": 0
+            },
+            {
+                "nombre": "Matias y Dilan",
+                "prediccion": "0 - 1",
+                "puntos_obtenidos": 0
+            }
+        ]
+    }
+]
