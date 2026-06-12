@@ -1,8 +1,13 @@
 [
     {
-        "nombre": "Jorge",
-        "codigo": "J2010",
-        "puntos": 12
+        "nombre": "Flor",
+        "codigo": "F1212",
+        "puntos": 18
+    },
+    {
+        "nombre": "Mateo y Erika",
+        "codigo": "M0110",
+        "puntos": 15
     },
     {
         "nombre": "Jesus",
@@ -10,9 +15,19 @@
         "puntos": 12
     },
     {
-        "nombre": "Flor",
-        "codigo": "F1212",
+        "nombre": "Chape",
+        "codigo": "S2813",
         "puntos": 12
+    },
+    {
+        "nombre": "Jorge",
+        "codigo": "J2010",
+        "puntos": 12
+    },
+    {
+        "nombre": "Cristian",
+        "codigo": "C7534",
+        "puntos": 9
     },
     {
         "nombre": "Chuchin",
@@ -20,28 +35,13 @@
         "puntos": 9
     },
     {
-        "nombre": "Mateo y Erika",
-        "codigo": "M0110",
+        "nombre": "Oscar",
+        "codigo": "O2010",
         "puntos": 9
     },
     {
         "nombre": "Kevin",
         "codigo": "K2468",
-        "puntos": 6
-    },
-    {
-        "nombre": "Albita",
-        "codigo": "R0612",
-        "puntos": 6
-    },
-    {
-        "nombre": "Chape",
-        "codigo": "S2813",
-        "puntos": 6
-    },
-    {
-        "nombre": "Oscar",
-        "codigo": "O2010",
         "puntos": 6
     },
     {
@@ -55,13 +55,18 @@
         "puntos": 6
     },
     {
-        "nombre": "Efrita",
-        "codigo": "E9877",
+        "nombre": "Albita",
+        "codigo": "R0612",
         "puntos": 6
     },
     {
-        "nombre": "Cristian",
-        "codigo": "C7534",
+        "nombre": "Julian",
+        "codigo": "J3124",
+        "puntos": 6
+    },
+    {
+        "nombre": "Efrita",
+        "codigo": "E9877",
         "puntos": 6
     },
     {
@@ -78,10 +83,5 @@
         "nombre": "Matias y Dilan",
         "codigo": "M3467",
         "puntos": 3
-    },
-    {
-        "nombre": "Julian",
-        "codigo": "J3124",
-        "puntos": 0
     }
 ]
