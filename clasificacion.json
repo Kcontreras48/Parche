@@ -10,9 +10,9 @@
         "puntos": 12
     },
     {
-        "nombre": "Mateo y Erika",
-        "codigo": "M0110",
-        "puntos": 9
+        "nombre": "Flor",
+        "codigo": "F1212",
+        "puntos": 12
     },
     {
         "nombre": "Chuchin",
@@ -20,13 +20,13 @@
         "puntos": 9
     },
     {
-        "nombre": "Kevin",
-        "codigo": "K2468",
-        "puntos": 6
+        "nombre": "Mateo y Erika",
+        "codigo": "M0110",
+        "puntos": 9
     },
     {
-        "nombre": "Cristian",
-        "codigo": "C7534",
+        "nombre": "Kevin",
+        "codigo": "K2468",
         "puntos": 6
     },
     {
@@ -45,13 +45,23 @@
         "puntos": 6
     },
     {
+        "nombre": "Luz y Tefita",
+        "codigo": "S8152",
+        "puntos": 6
+    },
+    {
+        "nombre": "Kiko",
+        "codigo": "F2345",
+        "puntos": 6
+    },
+    {
         "nombre": "Efrita",
         "codigo": "E9877",
         "puntos": 6
     },
     {
-        "nombre": "Luz y Tefita",
-        "codigo": "S8152",
+        "nombre": "Cristian",
+        "codigo": "C7534",
         "puntos": 6
     },
     {
@@ -72,16 +82,6 @@
     {
         "nombre": "Julian",
         "codigo": "J3124",
-        "puntos": 0
-    },
-    {
-        "nombre": "Kiko",
-        "codigo": "F2345",
-        "puntos": 0
-    },
-    {
-        "nombre": "Flor",
-        "codigo": "F1212",
         "puntos": 0
     }
 ]
