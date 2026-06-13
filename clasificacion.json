@@ -5,8 +5,8 @@
         "puntos": 21
     },
     {
-        "nombre": "Mateo y Erika",
-        "codigo": "M0110",
+        "nombre": "Chuchin",
+        "codigo": "L0707",
         "puntos": 15
     },
     {
@@ -15,9 +15,14 @@
         "puntos": 15
     },
     {
-        "nombre": "Jesus",
-        "codigo": "J1234",
-        "puntos": 12
+        "nombre": "Mateo y Erika",
+        "codigo": "M0110",
+        "puntos": 15
+    },
+    {
+        "nombre": "Cristian",
+        "codigo": "C7534",
+        "puntos": 15
     },
     {
         "nombre": "Jorge",
@@ -25,18 +30,13 @@
         "puntos": 12
     },
     {
-        "nombre": "Chuchin",
-        "codigo": "L0707",
-        "puntos": 9
+        "nombre": "Jesus",
+        "codigo": "J1234",
+        "puntos": 12
     },
     {
-        "nombre": "Cristian",
-        "codigo": "C7534",
-        "puntos": 9
-    },
-    {
-        "nombre": "Oscar",
-        "codigo": "O2010",
+        "nombre": "Kiko",
+        "codigo": "F2345",
         "puntos": 9
     },
     {
@@ -45,8 +45,13 @@
         "puntos": 9
     },
     {
-        "nombre": "Kiko",
-        "codigo": "F2345",
+        "nombre": "Oscar",
+        "codigo": "O2010",
+        "puntos": 9
+    },
+    {
+        "nombre": "Luz marina",
+        "codigo": "L1593",
         "puntos": 9
     },
     {
@@ -57,11 +62,6 @@
     {
         "nombre": "Albita",
         "codigo": "R0612",
-        "puntos": 6
-    },
-    {
-        "nombre": "Luz marina",
-        "codigo": "L1593",
         "puntos": 6
     },
     {
