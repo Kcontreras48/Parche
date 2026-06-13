@@ -2,11 +2,16 @@
     {
         "nombre": "Flor",
         "codigo": "F1212",
-        "puntos": 18
+        "puntos": 21
     },
     {
         "nombre": "Mateo y Erika",
         "codigo": "M0110",
+        "puntos": 15
+    },
+    {
+        "nombre": "Chape",
+        "codigo": "S2813",
         "puntos": 15
     },
     {
@@ -15,23 +20,18 @@
         "puntos": 12
     },
     {
-        "nombre": "Chape",
-        "codigo": "S2813",
-        "puntos": 12
-    },
-    {
         "nombre": "Jorge",
         "codigo": "J2010",
         "puntos": 12
     },
     {
-        "nombre": "Cristian",
-        "codigo": "C7534",
+        "nombre": "Chuchin",
+        "codigo": "L0707",
         "puntos": 9
     },
     {
-        "nombre": "Chuchin",
-        "codigo": "L0707",
+        "nombre": "Cristian",
+        "codigo": "C7534",
         "puntos": 9
     },
     {
@@ -40,18 +40,18 @@
         "puntos": 9
     },
     {
-        "nombre": "Kevin",
-        "codigo": "K2468",
-        "puntos": 6
-    },
-    {
-        "nombre": "Luz y Tefita",
-        "codigo": "S8152",
-        "puntos": 6
+        "nombre": "Julian",
+        "codigo": "J3124",
+        "puntos": 9
     },
     {
         "nombre": "Kiko",
         "codigo": "F2345",
+        "puntos": 9
+    },
+    {
+        "nombre": "Kevin",
+        "codigo": "K2468",
         "puntos": 6
     },
     {
@@ -60,8 +60,8 @@
         "puntos": 6
     },
     {
-        "nombre": "Julian",
-        "codigo": "J3124",
+        "nombre": "Luz marina",
+        "codigo": "L1593",
         "puntos": 6
     },
     {
@@ -70,13 +70,13 @@
         "puntos": 6
     },
     {
-        "nombre": "Samuel y Salome",
-        "codigo": "S0904",
-        "puntos": 3
+        "nombre": "Luz y Tefita",
+        "codigo": "S8152",
+        "puntos": 6
     },
     {
-        "nombre": "Luz marina",
-        "codigo": "L1593",
+        "nombre": "Samuel y Salome",
+        "codigo": "S0904",
         "puntos": 3
     },
     {

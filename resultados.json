@@ -277,93 +277,93 @@
     },
     {
         "partido_titulo": "USA vs Paraguay",
-        "marcador_real": "Por jugar",
-        "finalizado": false,
+        "marcador_real": "4 - 1",
+        "finalizado": true,
         "tabla_auditoria": [
             {
                 "nombre": "Kevin",
                 "prediccion": "0 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Julian",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Albita",
                 "prediccion": "0 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Oscar",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Chape",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Samuel y Salome",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Cristian",
                 "prediccion": "2 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Luz marina",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Jorge",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Luz y Tefita",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Kiko",
                 "prediccion": "3 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Chuchin",
                 "prediccion": "1 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Mateo y Erika",
                 "prediccion": "1 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Efrita",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Jesus",
                 "prediccion": "1 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Flor",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Matias y Dilan",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             }
         ]
     },
