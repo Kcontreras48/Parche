@@ -104,11 +104,55 @@
         /* TARJETAS DE RESULTADOS REALES (CONTENEDORES) */
         .partido-card {
             background: #252525;
-            padding: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 14px;
             border-radius: 8px;
             border: 1px solid #333;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .partido-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #fff;
+            text-align: left;
+            cursor: pointer;
+            padding: 16px 18px;
+            font: inherit;
+        }
+        .partido-summary:hover {
+            background: #2d2d2d;
+        }
+        .partido-summary h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .partido-details {
+            border-top: 1px solid #333;
+            padding: 12px 14px 18px;
+            display: none;
+            background: #1c1c1c;
+        }
+        .partido-card.open .partido-details {
+            display: block;
+        }
+        .partido-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .partido-chip.pending {
+            background: #555555;
         }
         .partido-header {
             text-align: center;
@@ -242,10 +286,20 @@
                 let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
                 let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
 
-                let tablaPartido = `<div class="partido-card">
-                    <div class="partido-header"><h3>${partido.titulo}</h3>
-                    <span class="badge-resultado" style="background:${partido.finalizado ? '#28a745' : '#555555'}">${partido.finalizado ? 'Marcador: ' + partido.marcador_real : '⚽ Partido por Jugar'}</span></div>
-                    <table style="width:100%; border-collapse:collapse; background:#1e1e1e;">
+                const cardOpen = '';
+                const estadoChip = partido.finalizado ? 'Marcador: ' + partido.marcador_real : '⚽ Partido por Jugar';
+                const chipClass = partido.finalizado ? '' : 'pending';
+
+                let tablaPartido = `<div class="partido-card ${cardOpen}">
+                    <button class="partido-summary" type="button" onclick="this.closest('.partido-card').classList.toggle('open')" aria-expanded="false">
+                        <span>
+                            <h3>${partido.titulo}</h3>
+                            <div style="font-size:12px; color:#bdbdbd; margin-top:4px;">${partido.finalizado ? 'Ver detalle del partido' : 'Sin marcador aún'}</div>
+                        </span>
+                        <span class="partido-chip ${chipClass}">${estadoChip}</span>
+                    </button>
+                    <div class="partido-details">
+                    <table style="width:100%; border-collapse:collapse; background:#1e1e1e; margin-top:0;">
                     <thead><tr style="background:#2c2c2c; color:white;"><th style="padding:10px;">Participante</th><th class="centro" style="padding:10px;">Predicción</th><th class="centro" style="padding:10px;">Puntos</th></tr></thead><tbody>`;
 
                 Object.entries(diccionarioParticipantes).forEach(([codigo, nombre]) => {
@@ -278,7 +332,7 @@
                     <td class="centro" style="padding:10px;"><span style="color:${colorPuntos}; font-weight:bold;">+${puntos_partido} pts</span></td></tr>`;
                 });
 
-                auditoriaHTML += tablaPartido + `</tbody></table></div>`;
+                auditoriaHTML += tablaPartido + `</tbody></table></div></div>`;
             });
 
             document.getElementById('lista-resultados').innerHTML = auditoriaHTML;
