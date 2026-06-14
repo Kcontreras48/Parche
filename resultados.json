@@ -369,93 +369,93 @@
     },
     {
         "partido_titulo": "Brazil vs Morocco",
-        "marcador_real": "Por jugar",
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "finalizado": true,
         "tabla_auditoria": [
             {
                 "nombre": "Kevin",
                 "prediccion": "1 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 6
             },
             {
                 "nombre": "Julian",
                 "prediccion": "1 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Albita",
                 "prediccion": "1 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Oscar",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Chape",
                 "prediccion": "6 - 3",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Samuel y Salome",
                 "prediccion": "3 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Cristian",
                 "prediccion": "0 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Luz marina",
                 "prediccion": "3 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Jorge",
                 "prediccion": "1 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Luz y Tefita",
                 "prediccion": "2 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 3
             },
             {
                 "nombre": "Kiko",
                 "prediccion": "3 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Chuchin",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Mateo y Erika",
                 "prediccion": "3 - 2",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Efrita",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Jesus",
                 "prediccion": "3 - 0",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Flor",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             },
             {
                 "nombre": "Matias y Dilan",
                 "prediccion": "2 - 1",
-                "puntos_obtenidos": null
+                "puntos_obtenidos": 0
             }
         ]
     },
