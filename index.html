@@ -220,11 +220,13 @@
                 let loc_clean = normalizarNombre(partido.local_nombre);
                 let vis_clean = normalizarNombre(partido.visitante_nombre);
 
-                let col_L = llavesFormulario.find(k => k.toLowerCase().includes(loc_clean) && k.toLowerCase().includes(vis_clean) && k.toLowerCase().endsWith('_local'));
-                let col_V = llavesFormulario.find(k => k.toLowerCase().includes(loc_clean) && k.toLowerCase().includes(vis_clean) && k.toLowerCase().endsWith('_visitante'));
+                // 🛡️ CORRECCIÓN DE SEGURIDAD: Búsqueda exacta por llave para evitar cruces de nombres similares
+                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
+                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
 
+                // 🛡️ CORRECCIÓN DEL BUG: Solo calcula tendencia real si el partido finalizó Y los goles no son null
                 let tendencia_real = null;
-                if(partido.finalizado) {
+                if(partido.finalizado && partido.goles_L_real !== null && partido.goles_V_real !== null) {
                     tendencia_real = (partido.goles_L_real > partido.goles_V_real) ? "Local" : 
                                      (partido.goles_L_real < partido.goles_V_real) ? "Visitante" : "Empate";
                 }
@@ -246,7 +248,9 @@
 
                         if(!isNaN(p_L) && !isNaN(p_V)) {
                             pred_texto = `${p_L} - ${p_V}`;
-                            if(partido.finalizado) {
+                            
+                            // 🛡️ CORRECCIÓN DEL BUG: Solo evaluar puntos si el partido finalizó y tenemos una tendencia real válida
+                            if(partido.finalizado && tendencia_real !== null) {
                                 let tendencia_pred = (p_L > p_V) ? "Local" : (p_L < p_V) ? "Visitante" : "Empate";
                                 if(tendencia_real === tendencia_pred) {
                                     puntos_partido += 3;
