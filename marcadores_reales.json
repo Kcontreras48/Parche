@@ -183,10 +183,10 @@
         "titulo": "England vs Croatia",
         "local_nombre": "England",
         "visitante_nombre": "Croatia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false
+        "marcador_real": "5 - 1",
+        "goles_L_real": 5,
+        "goles_V_real": 1,
+        "finalizado": true
     },
     {
         "titulo": "Ghana vs Panama",
