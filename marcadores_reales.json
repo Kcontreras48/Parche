@@ -6,7 +6,8 @@
         "marcador_real": "2 - 0",
         "goles_L_real": 2,
         "goles_V_real": 0,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478773.8158953
     },
     {
         "titulo": "South Korea vs Czech Republic",
@@ -15,7 +16,8 @@
         "marcador_real": "2 - 1",
         "goles_L_real": 2,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478774.2242873
     },
     {
         "titulo": "Canada vs Bosnia-Herzegovina",
@@ -24,7 +26,8 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478774.6291664
     },
     {
         "titulo": "USA vs Paraguay",
@@ -33,7 +36,8 @@
         "marcador_real": "4 - 1",
         "goles_L_real": 4,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478775.0300732
     },
     {
         "titulo": "Qatar vs Switzerland",
@@ -42,7 +46,8 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478775.4633698
     },
     {
         "titulo": "Brazil vs Morocco",
@@ -51,7 +56,8 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478775.8713791
     },
     {
         "titulo": "Haiti vs Scotland",
@@ -60,7 +66,8 @@
         "marcador_real": "0 - 1",
         "goles_L_real": 0,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478776.271377
     },
     {
         "titulo": "Australia vs Turkey",
@@ -69,7 +76,8 @@
         "marcador_real": "2 - 0",
         "goles_L_real": 2,
         "goles_V_real": 0,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478776.6832166
     },
     {
         "titulo": "Netherlands vs Japan",
@@ -78,16 +86,18 @@
         "marcador_real": "2 - 2",
         "goles_L_real": 2,
         "goles_V_real": 2,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478777.083151
     },
     {
         "titulo": "Ivory Coast vs Ecuador",
         "local_nombre": "Ivory Coast",
         "visitante_nombre": "Ecuador",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
+        "ultima_verificacion": 1781478777.4900956
     },
     {
         "titulo": "Sweden vs Tunisia",
@@ -96,7 +106,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478777.9020765
     },
     {
         "titulo": "Germany vs Curaçao",
@@ -105,7 +116,8 @@
         "marcador_real": "7 - 1",
         "goles_L_real": 7,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478778.3041687
     },
     {
         "titulo": "Belgium vs Egypt",
@@ -114,7 +126,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478778.7146857
     },
     {
         "titulo": "Saudi Arabia vs Uruguay",
@@ -123,7 +136,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478779.1312327
     },
     {
         "titulo": "Iran vs New Zealand",
@@ -132,7 +146,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478779.5576706
     },
     {
         "titulo": "Spain vs Cape Verde",
@@ -141,7 +156,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478779.9781404
     },
     {
         "titulo": "France vs Senegal",
@@ -150,7 +166,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478780.3832302
     },
     {
         "titulo": "Iraq vs Norway",
@@ -159,7 +176,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478780.7888794
     },
     {
         "titulo": "Argentina vs Algeria",
@@ -168,7 +186,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478781.3022053
     },
     {
         "titulo": "Austria vs Jordan",
@@ -177,7 +196,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478781.7085254
     },
     {
         "titulo": "England vs Croatia",
@@ -186,7 +206,8 @@
         "marcador_real": "5 - 1",
         "goles_L_real": 5,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": true,
+        "ultima_verificacion": 1781478782.1135683
     },
     {
         "titulo": "Ghana vs Panama",
@@ -195,7 +216,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478782.5420747
     },
     {
         "titulo": "Uzbekistan vs Colombia",
@@ -204,7 +226,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478782.9584112
     },
     {
         "titulo": "Portugal vs DR Congo",
@@ -213,7 +236,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478783.3736527
     },
     {
         "titulo": "Switzerland vs Bosnia-Herzegovina",
@@ -222,7 +246,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478783.7909572
     },
     {
         "titulo": "Canada vs Qatar",
@@ -231,7 +256,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478784.2000842
     },
     {
         "titulo": "Mexico vs South Korea",
@@ -240,7 +266,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478784.6012669
     },
     {
         "titulo": "Czech Republic vs South Africa",
@@ -249,7 +276,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478785.0065846
     },
     {
         "titulo": "USA vs Australia",
@@ -258,7 +286,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478785.4097466
     },
     {
         "titulo": "Scotland vs Morocco",
@@ -267,7 +296,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478785.813514
     },
     {
         "titulo": "Brazil vs Haiti",
@@ -276,7 +306,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478786.2250955
     },
     {
         "titulo": "Turkey vs Paraguay",
@@ -285,7 +316,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478786.6293159
     },
     {
         "titulo": "Germany vs Ivory Coast",
@@ -294,7 +326,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478786.972321
     },
     {
         "titulo": "Ecuador vs Curaçao",
@@ -303,7 +336,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478787.29456
     },
     {
         "titulo": "Tunisia vs Japan",
@@ -312,7 +346,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478787.625111
     },
     {
         "titulo": "Netherlands vs Sweden",
@@ -321,7 +356,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478787.946571
     },
     {
         "titulo": "Belgium vs Iran",
@@ -330,7 +366,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478788.2675102
     },
     {
         "titulo": "Uruguay vs Cape Verde",
@@ -339,7 +376,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478788.6082478
     },
     {
         "titulo": "New Zealand vs Egypt",
@@ -348,7 +386,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478788.9464502
     },
     {
         "titulo": "Spain vs Saudi Arabia",
@@ -357,7 +396,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478789.269572
     },
     {
         "titulo": "France vs Iraq",
@@ -366,7 +406,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478789.5917256
     },
     {
         "titulo": "Norway vs Senegal",
@@ -375,7 +416,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478789.9190674
     },
     {
         "titulo": "Jordan vs Algeria",
@@ -384,7 +426,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478790.2381022
     },
     {
         "titulo": "Argentina vs Austria",
@@ -393,7 +436,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478790.561455
     },
     {
         "titulo": "England vs Ghana",
@@ -402,7 +446,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478790.9003806
     },
     {
         "titulo": "Panama vs Croatia",
@@ -411,7 +456,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478791.2263947
     },
     {
         "titulo": "Colombia vs DR Congo",
@@ -420,7 +466,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478791.5517955
     },
     {
         "titulo": "Portugal vs Uzbekistan",
@@ -429,7 +476,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478791.8842027
     },
     {
         "titulo": "Switzerland vs Canada",
@@ -438,7 +486,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478792.2144504
     },
     {
         "titulo": "Bosnia-Herzegovina vs Qatar",
@@ -447,7 +496,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478792.539108
     },
     {
         "titulo": "Morocco vs Haiti",
@@ -456,7 +506,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478792.8652453
     },
     {
         "titulo": "Scotland vs Brazil",
@@ -465,7 +516,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478793.1994681
     },
     {
         "titulo": "South Africa vs South Korea",
@@ -474,7 +526,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478793.5213618
     },
     {
         "titulo": "Czech Republic vs Mexico",
@@ -483,7 +536,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478793.8412762
     },
     {
         "titulo": "Curaçao vs Ivory Coast",
@@ -492,7 +546,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478794.161959
     },
     {
         "titulo": "Ecuador vs Germany",
@@ -501,7 +556,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478794.4841504
     },
     {
         "titulo": "Tunisia vs Netherlands",
@@ -510,7 +566,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478794.804564
     },
     {
         "titulo": "Japan vs Sweden",
@@ -519,7 +576,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478795.1245434
     },
     {
         "titulo": "Paraguay vs Australia",
@@ -528,7 +586,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478795.4438133
     },
     {
         "titulo": "Turkey vs USA",
@@ -537,7 +596,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478795.7819135
     },
     {
         "titulo": "Norway vs France",
@@ -546,7 +606,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478796.1049721
     },
     {
         "titulo": "Senegal vs Iraq",
@@ -555,7 +616,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478796.4302902
     },
     {
         "titulo": "Cape Verde vs Saudi Arabia",
@@ -564,7 +626,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478796.7596889
     },
     {
         "titulo": "Uruguay vs Spain",
@@ -573,7 +636,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478797.0892317
     },
     {
         "titulo": "Egypt vs Iran",
@@ -582,7 +646,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478797.4138696
     },
     {
         "titulo": "New Zealand vs Belgium",
@@ -591,7 +656,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478797.745413
     },
     {
         "titulo": "Croatia vs Ghana",
@@ -600,7 +666,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478798.066621
     },
     {
         "titulo": "Panama vs England",
@@ -609,7 +676,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478798.3898168
     },
     {
         "titulo": "Colombia vs Portugal",
@@ -618,7 +686,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478798.7160413
     },
     {
         "titulo": "DR Congo vs Uzbekistan",
@@ -627,7 +696,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478799.0366366
     },
     {
         "titulo": "Algeria vs Austria",
@@ -636,7 +706,8 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478799.3611157
     },
     {
         "titulo": "Jordan vs Argentina",
@@ -645,6 +716,7 @@
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
-        "finalizado": false
+        "finalizado": false,
+        "ultima_verificacion": 1781478799.6894903
     }
 ]
