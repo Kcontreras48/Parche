@@ -75,10 +75,10 @@
         "titulo": "Netherlands vs Japan",
         "local_nombre": "Netherlands",
         "visitante_nombre": "Japan",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false
+        "marcador_real": "2 - 2",
+        "goles_L_real": 2,
+        "goles_V_real": 2,
+        "finalizado": true
     },
     {
         "titulo": "Ivory Coast vs Ecuador",
