@@ -6,7 +6,7 @@
         "marcador_real": "2 - 0",
         "goles_L_real": 2,
         "goles_V_real": 0,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "South Korea vs Czech Republic",
@@ -15,7 +15,7 @@
         "marcador_real": "2 - 1",
         "goles_L_real": 2,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Canada vs Bosnia-Herzegovina",
@@ -24,7 +24,7 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "USA vs Paraguay",
@@ -33,7 +33,7 @@
         "marcador_real": "4 - 1",
         "goles_L_real": 4,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Qatar vs Switzerland",
@@ -42,7 +42,7 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Brazil vs Morocco",
@@ -51,7 +51,7 @@
         "marcador_real": "1 - 1",
         "goles_L_real": 1,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Haiti vs Scotland",
@@ -60,7 +60,7 @@
         "marcador_real": "0 - 1",
         "goles_L_real": 0,
         "goles_V_real": 1,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Australia vs Turkey",
@@ -69,7 +69,7 @@
         "marcador_real": "2 - 0",
         "goles_L_real": 2,
         "goles_V_real": 0,
-        "finalizado": true
+        "finalizado": false
     },
     {
         "titulo": "Netherlands vs Japan",
