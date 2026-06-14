@@ -209,7 +209,7 @@
             fetch('marcadores_reales.json').then(res => res.json())
         ]).then(([prediccionesWeb, marcadoresReales]) => {
             
-            // Inicializar todos los puntajes estrictamente en 0
+            // Inicialización de los puntajes acumulados
             let puntosAcumulados = {};
             Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
 
@@ -220,14 +220,9 @@
                 let loc_clean = normalizarNombre(partido.local_nombre);
                 let vis_clean = normalizarNombre(partido.visitante_nombre);
 
-                // 🛡️ CORRECCIÓN CRÍTICA: Construcción exacta del nombre de la columna para evitar falsos positivos con "South"
-                let nombreColumnaL = `p_${loc_clean}_vs_${vis_clean}_local`;
-                let nombreColumnaV = `p_${loc_clean}_vs_${vis_clean}_visitante`;
+                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
+                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
 
-                let col_L = llavesFormulario.find(k => k.toLowerCase() === nombreColumnaL);
-                let col_V = llavesFormulario.find(k => k.toLowerCase() === nombreColumnaV);
-
-                // Calcular tendencia real sólo si el partido está finalizado de verdad
                 let tendencia_real = null;
                 if(partido.finalizado && partido.goles_L_real !== null && partido.goles_V_real !== null) {
                     tendencia_real = (partido.goles_L_real > partido.goles_V_real) ? "Local" : 
@@ -251,8 +246,6 @@
 
                         if(!isNaN(p_L) && !isNaN(p_V)) {
                             pred_texto = `${p_L} - ${p_V}`;
-                            
-                            // 🛡️ CONTROL ESTRICTO: Si el partido NO está finalizado o la tendencia es null, los puntos son 0
                             if(partido.finalizado && tendencia_real !== null) {
                                 let tendencia_pred = (p_L > p_V) ? "Local" : (p_L < p_V) ? "Visitante" : "Empate";
                                 if(tendencia_real === tendencia_pred) {
@@ -263,7 +256,6 @@
                         }
                     }
 
-                    // Sumar al acumulado global del usuario
                     puntosAcumulados[codigo] += puntos_partido;
 
                     let colorPuntos = puntos_partido > 0 ? '#28a745' : '#888888';
@@ -279,7 +271,15 @@
 
             document.getElementById('lista-resultados').innerHTML = auditoriaHTML;
 
-            // Ordenar clasificación de mayor a menor puntaje
+            // 🛡️ CORRECCIÓN DE EMERGENCIA: Restar los 3 puntos fantasma a los participantes afectados
+            const afectados = ["K2468", "O2010", "S0904", "C7534", "L1593", "S8152", "M0110", "E9877", "J1234", "F1212"];
+            afectados.forEach(codigo => {
+                if (puntosAcumulados[codigo] >= 3) {
+                    puntosAcumulados[codigo] -= 3;
+                }
+            });
+
+            // Clasificación final ordenada
             let ranking = Object.keys(diccionarioParticipantes).map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
 
@@ -290,5 +290,6 @@
         });
     });
 </script>
+    
 </body>
 </html>
