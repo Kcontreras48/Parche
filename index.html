@@ -175,147 +175,195 @@
 
 <script>
     // Función para cambiar de pestaña en el menú
-    function switchTab(tabId, button) {
-        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+function switchTab(tabId, button) {
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) targetTab.classList.add('active');
+    if (button) button.classList.add('active');
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Diccionario Oficial de Participantes movido al Frontend
+    const diccionarioParticipantes = {
+        "K2468": "Kevin", "J3124": "Julian", "R0612": "Albita", "O2010": "Oscar",
+        "S2813": "Chape", "S0904": "Samuel y Salome", "C7534": "Cristian", 
+        "L1593": "Luz marina", "J2010": "Jorge", "S8152": "Luz y Tefita", 
+        "F2345": "Kiko", "L0707": "Chuchin", "M0110": "Mateo y Erika", 
+        "E9877": "Efrita", "J1234": "Jesus", "F1212": "Flor", "M3467": "Matias y Dilan"
+    };
+
+    // Obtenemos los dos JSONs al mismo tiempo de tu repositorio
+    Promise.all([
+        fetch('predicciones_locales.json').then(res => res.json()),
+        fetch('marcadores_reales.json').then(res => res.json())
+    ]).then(([prediccionesWeb, marcadoresReales]) => {
         
-        const targetTab = document.getElementById(tabId);
-        if (targetTab) targetTab.classList.add('active');
-        if (button) button.classList.add('active');
-    }
+        // 1. INICIALIZAMOS LOS CONTADORES DE PUNTOS
+        let puntosAcumulados = {};
+        for(let key in diccionarioParticipantes) puntosAcumulados[key] = 0;
 
-    document.addEventListener("DOMContentLoaded", function() {
-        
-        // 1. CONTROLADOR DE LA CLASIFICACIÓN GENERAL
-        fetch('clasificacion.json')
-            .then(response => {
-                if (!response.ok) throw new Error("No se pudo cargar clasificacion.json");
-                return response.json();
-            })
-            .then(data => {
-                const tbody = document.getElementById('tabla-clasificacion');
-                if (!tbody) return;
-                tbody.innerHTML = '';
-                
-                if (!data || data.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="4" class="loading">No hay datos de clasificación registrados.</td></tr>`;
-                    return;
+        let auditoriaHTML = '';
+
+        // Obtenemos las llaves del primer formulario válido para hacer el escaneo de nombres de equipos
+        let llavesFormulario = [];
+        if(prediccionesWeb.length > 0 && prediccionesWeb[0].form_data) {
+            llavesFormulario = Object.keys(prediccionesWeb[0].form_data);
+        }
+
+        // 2. MOTOR DE CÁLCULO Y DIBUJO DE TARJETAS
+        marcadoresReales.forEach(partido => {
+            // Escaneo difuso de nombres de equipos (Igual que se hacía en Python pero en JS)
+            let loc_clean = partido.local_nombre.toLowerCase().replace(/ /g, '_');
+            let vis_clean = partido.visitante_nombre.toLowerCase().replace(/ /g, '_');
+
+            let col_L = null, col_V = null;
+            for(let key of llavesFormulario) {
+                let kLower = key.toLowerCase();
+                if(kLower.includes(loc_clean) && kLower.includes(vis_clean)) {
+                    if(kLower.endsWith('_local')) col_L = key;
+                    else if(kLower.endsWith('_visitante')) col_V = key;
                 }
-                
-                data.forEach((jugador, index) => {
-                    const pos = index + 1;
-                    let posClass = 'class="centro"';
-                    
-                    if(pos === 1) posClass = 'class="pos-1 centro"';
-                    else if(pos === 2) posClass = 'class="pos-2 centro"';
-                    else if(pos === 3) posClass = 'class="pos-3 centro"';
+            }
 
-                    let nombreFinal = jugador.nombre ? jugador.nombre : "Participante";
-                    let codigoFinal = jugador.codigo ? jugador.codigo : (jugador.codigo_usuario ? jugador.codigo_usuario : "—");
-                    let puntosFinal = jugador.puntos !== undefined ? jugador.puntos : 0;
+            let tendencia_real = null;
+            if(partido.finalizado) {
+                if(partido.goles_L_real > partido.goles_V_real) tendencia_real = "Local";
+                else if(partido.goles_L_real < partido.goles_V_real) tendencia_real = "Visitante";
+                else tendencia_real = "Empate";
+            }
 
-                    tbody.innerHTML += `
-                        <tr>
-                            <td ${posClass}>${pos}</td>
-                            <td><strong>${nombreFinal}</strong></td>
-                            <td class="centro" style="color: #888888;">${codigoFinal}</td>
-                            <td class="centro" style="color: #28a745; font-weight: bold;">${puntosFinal} pts</td>
-                        </tr>
-                    `;
-                });
-            })
-            .catch(err => {
-                console.error("Error en clasificación:", err);
-                const tbody = document.getElementById('tabla-clasificacion');
-                if (tbody) {
-                    tbody.innerHTML = `<tr><td colspan="4" style="color:#ff4c4c; text-align:center;">Error al procesar la clasificación general.</td></tr>`;
-                }
-            });
+            let badgeColor = partido.finalizado ? '#28a745' : '#555555';
+            let textoBadge = partido.finalizado ? `Marcador Real: ${partido.marcador_real}` : '⚽ Partido por Jugar';
 
-        // 2. CONTROLADOR DE AUDITORÍA TOTAL (72 PARTIDOS)
-        fetch('resultados.json')
-            .then(response => {
-                if (!response.ok) throw new Error("No se pudo cargar resultados.json");
-                return response.json();
-            })
-            .then(data => {
-                const lista = document.getElementById("lista-resultados");
-                if (!lista) return;
-                lista.innerHTML = '';
+            let tablaPartido = `
+                <div class="partido-card">
+                    <div class="partido-header">
+                        <h3>${partido.titulo}</h3>
+                        <span class="badge-resultado" style="background:${badgeColor}">${textoBadge}</span>
+                    </div>
+                    <table style="width:100%; border-collapse:collapse; background:#1e1e1e;">
+                        <thead>
+                            <tr style="background:#2c2c2c; color:white;">
+                                <th style="padding:10px;">Participante</th>
+                                <th class="centro" style="padding:10px;">Predicción</th>
+                                <th class="centro" style="padding:10px;">Puntos Ganados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            // Calculamos puntos para cada participante
+            for(let [codigo, nombre] of Object.entries(diccionarioParticipantes)) {
+                // Buscamos si la persona llenó el formulario
+                let formUser = prediccionesWeb.find(p => p.form_data && p.form_data.codigo_usuario && p.form_data.codigo_usuario.toUpperCase() === codigo);
                 
-                if (!data || data.length === 0) {
-                    lista.innerHTML = `<p class="loading">No se encontraron planillas generadas en el servidor.</p>`;
-                    return;
-                }
-                
-                data.forEach(partido => {
-                    let yaSeJugo = partido.marcador_real !== "Por jugar";
-                    let badgeColor = yaSeJugo ? '#28a745' : '#555555';
-                    let textoBadge = yaSeJugo ? `Marcador Real: ${partido.marcador_real}` : '⚽ Partido por Jugar';
-                    
-                    let tarjetaHTML = `
-                        <div class="partido-card" style="background:#252525; padding:15px; border-radius:8px; border:1px solid #333; margin-bottom:25px;">
-                            <div class="partido-header" style="text-align:center; margin-bottom:15px;">
-                                <h3 style="color:#fff; margin:5px 0;">${partido.partido_titulo}</h3>
-                                <span class="badge-resultado" style="background: ${badgeColor}; color:white; padding:4px 12px; border-radius:20px; font-weight:bold; font-size:13px; display:inline-block;">
-                                    ${textoBadge}
-                                </span>
-                            </div>
-                            
-                            <table style="width:100%; border-collapse:collapse; background:#1e1e1e;">
-                                <thead>
-                                    <tr style="background:#2c2c2c; color:white;">
-                                        <th style="padding:10px;">Participante</th>
-                                        <th style="padding:10px; text-align:center;">Predicción</th>
-                                        <th style="padding:10px; text-align:center;">Puntos Ganados</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                    `;
-                    
-                    if (partido.tabla_auditoria && Array.isArray(partido.tabla_auditoria)) {
-                        partido.tabla_auditoria.forEach(fila => {
-                            let puntosPintados = "";
-                            let estiloFila = "";
-                            
-                            if (yaSeJugo) {
-                                let pts = fila.puntos_obtenidos !== null ? fila.puntos_obtenidos : 0;
-                                let colorPuntos = pts > 0 ? '#28a745' : '#888888';
-                                puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${pts} pts</span>`;
-                                
-                                if (pts === 6) {
-                                    estiloFila = 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"';
+                let pred_texto = "—";
+                let puntos_ganados = 0;
+
+                if(formUser && col_L && col_V) {
+                    let val_L = formUser.form_data[col_L];
+                    let val_V = formUser.form_data[col_V];
+
+                    if(val_L !== undefined && val_L !== "" && val_V !== undefined && val_V !== "") {
+                        let p_L = parseInt(val_L);
+                        let p_V = parseInt(val_V);
+
+                        if(!isNaN(p_L) && !isNaN(p_V)) {
+                            pred_texto = `${p_L} - ${p_V}`;
+
+                            if(partido.finalizado) {
+                                let tendencia_pred = "Empate";
+                                if(p_L > p_V) tendencia_pred = "Local";
+                                else if(p_L < p_V) tendencia_pred = "Visitante";
+
+                                // +3 por atinarle a la tendencia (ganador o empate)
+                                if(tendencia_real === tendencia_pred) {
+                                    puntos_ganados += 3;
+                                    // +3 adicionales por marcador exacto
+                                    if(p_L === partido.goles_L_real && p_V === partido.goles_V_real) {
+                                        puntos_ganados += 3;
+                                    }
                                 }
-                            } else {
-                                puntosPintados = `<span style="color:#6c757d; font-style:italic;">Pendiente</span>`;
+                                puntosAcumulados[codigo] += puntos_ganados;
                             }
-                            
-                            tarjetaHTML += `
-                                <tr ${estiloFila}>
-                                    <td style="padding:10px; border-bottom:1px solid #333;"><strong>${fila.nombre}</strong></td>
-                                    <td style="padding:10px; border-bottom:1px solid #333; text-align:center; color:#fff;">${fila.prediccion}</td>
-                                    <td style="padding:10px; border-bottom:1px solid #333; text-align:center;">${puntosPintados}</td>
-                                </tr>
-                            `;
-                        });
+                        } else {
+                            pred_texto = "Inválido";
+                        }
                     }
-                    
-                    tarjetaHTML += `
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                    lista.innerHTML += tarjetaHTML;
-                });
-            })
-            .catch(err => {
-                console.error("Error en auditoría:", err);
-                const lista = document.getElementById("lista-resultados");
-                if (lista) {
-                    lista.innerHTML = `<p style="color:#ff4c4c; text-align:center;">Error al renderizar las tablas de auditoría familiar.</p>`;
                 }
-            });
+
+                // Generar los estilos dinámicos de los puntos (Dorado si sacó 6 pts)
+                let puntosPintados = "";
+                let estiloFila = "";
+                
+                if(partido.finalizado) {
+                    let colorPuntos = puntos_ganados > 0 ? '#28a745' : '#888888';
+                    puntosPintados = `<span style="color:${colorPuntos}; font-weight:bold;">+${puntos_ganados} pts</span>`;
+                    if(puntos_ganados === 6) estiloFila = 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"';
+                } else {
+                    puntosPintados = `<span style="color:#6c757d; font-style:italic;">Pendiente</span>`;
+                }
+
+                tablaPartido += `
+                    <tr ${estiloFila}>
+                        <td style="padding:10px; border-bottom:1px solid #333;"><strong>${nombre}</strong></td>
+                        <td class="centro" style="padding:10px; border-bottom:1px solid #333; color:#fff;">${pred_texto}</td>
+                        <td class="centro" style="padding:10px; border-bottom:1px solid #333;">${puntosPintados}</td>
+                    </tr>
+                `;
+            }
+
+            tablaPartido += `</tbody></table></div>`;
+            auditoriaHTML += tablaPartido;
+        });
+
+        // Imprimimos toda la auditoría en pantalla
+        const listaResultados = document.getElementById('lista-resultados');
+        if (listaResultados) listaResultados.innerHTML = auditoriaHTML;
+
+        // 3. ORDENAR Y DIBUJAR LA CLASIFICACIÓN GENERAL
+        let rankingArray = Object.keys(diccionarioParticipantes).map(cod => {
+            return { codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod] };
+        });
+
+        // Ordenamos de mayor a menor según los puntos calculados
+        rankingArray.sort((a, b) => b.puntos - a.puntos);
+
+        let clasificacionHTML = '';
+        rankingArray.forEach((jugador, index) => {
+            const pos = index + 1;
+            let posClass = 'class="centro"';
+            
+            if(pos === 1) posClass = 'class="pos-1 centro"';
+            else if(pos === 2) posClass = 'class="pos-2 centro"';
+            else if(pos === 3) posClass = 'class="pos-3 centro"';
+
+            clasificacionHTML += `
+                <tr>
+                    <td ${posClass}>${pos}</td>
+                    <td><strong>${jugador.nombre}</strong></td>
+                    <td class="centro" style="color: #888888;">${jugador.codigo}</td>
+                    <td class="centro" style="color: #28a745; font-weight: bold;">${jugador.puntos} pts</td>
+                </tr>
+            `;
+        });
+
+        const tablaClasi = document.getElementById('tabla-clasificacion');
+        if(tablaClasi) tablaClasi.innerHTML = clasificacionHTML;
+
+    }).catch(err => {
+        console.error("Error procesando los datos:", err);
+        document.getElementById('tabla-clasificacion').innerHTML = `
+            <tr><td colspan="4" style="color:#ff4c4c; text-align:center;">
+                Error renderizando los datos. Revisa la consola (F12).
+            </td></tr>`;
+        document.getElementById('lista-resultados').innerHTML = `
+            <p style="color:#ff4c4c; text-align:center;">No se pudieron cargar los partidos.</p>`;
     });
+});
 </script>
 
 </body>
