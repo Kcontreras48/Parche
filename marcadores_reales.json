@@ -36,6 +36,15 @@
         "finalizado": true
     },
     {
+        "titulo": "Qatar vs Switzerland",
+        "local_nombre": "Qatar",
+        "visitante_nombre": "Switzerland",
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
         "titulo": "Brazil vs Morocco",
         "local_nombre": "Brazil",
         "visitante_nombre": "Morocco",
@@ -45,18 +54,162 @@
         "finalizado": true
     },
     {
-        "titulo": "Canada vs Qatar",
-        "local_nombre": "Canada",
-        "visitante_nombre": "Qatar",
+        "titulo": "Haiti vs Scotland",
+        "local_nombre": "Haiti",
+        "visitante_nombre": "Scotland",
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "Australia vs Turkey",
+        "local_nombre": "Australia",
+        "visitante_nombre": "Turkey",
+        "marcador_real": "2 - 0",
+        "goles_L_real": 2,
+        "goles_V_real": 0,
+        "finalizado": true
+    },
+    {
+        "titulo": "Netherlands vs Japan",
+        "local_nombre": "Netherlands",
+        "visitante_nombre": "Japan",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false
     },
     {
-        "titulo": "Czech Republic vs South Africa",
-        "local_nombre": "Czech Republic",
-        "visitante_nombre": "South Africa",
+        "titulo": "Ivory Coast vs Ecuador",
+        "local_nombre": "Ivory Coast",
+        "visitante_nombre": "Ecuador",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Sweden vs Tunisia",
+        "local_nombre": "Sweden",
+        "visitante_nombre": "Tunisia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Germany vs Curaçao",
+        "local_nombre": "Germany",
+        "visitante_nombre": "Curaçao",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Belgium vs Egypt",
+        "local_nombre": "Belgium",
+        "visitante_nombre": "Egypt",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Saudi Arabia vs Uruguay",
+        "local_nombre": "Saudi Arabia",
+        "visitante_nombre": "Uruguay",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Iran vs New Zealand",
+        "local_nombre": "Iran",
+        "visitante_nombre": "New Zealand",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Spain vs Cape Verde",
+        "local_nombre": "Spain",
+        "visitante_nombre": "Cape Verde",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "France vs Senegal",
+        "local_nombre": "France",
+        "visitante_nombre": "Senegal",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Iraq vs Norway",
+        "local_nombre": "Iraq",
+        "visitante_nombre": "Norway",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Argentina vs Algeria",
+        "local_nombre": "Argentina",
+        "visitante_nombre": "Algeria",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Austria vs Jordan",
+        "local_nombre": "Austria",
+        "visitante_nombre": "Jordan",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "England vs Croatia",
+        "local_nombre": "England",
+        "visitante_nombre": "Croatia",
+        "marcador_real": "5 - 1",
+        "goles_L_real": 5,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "Ghana vs Panama",
+        "local_nombre": "Ghana",
+        "visitante_nombre": "Panama",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Uzbekistan vs Colombia",
+        "local_nombre": "Uzbekistan",
+        "visitante_nombre": "Colombia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Portugal vs DR Congo",
+        "local_nombre": "Portugal",
+        "visitante_nombre": "DR Congo",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
@@ -72,9 +225,36 @@
         "finalizado": false
     },
     {
+        "titulo": "Canada vs Qatar",
+        "local_nombre": "Canada",
+        "visitante_nombre": "Qatar",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
         "titulo": "Mexico vs South Korea",
         "local_nombre": "Mexico",
         "visitante_nombre": "South Korea",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Czech Republic vs South Africa",
+        "local_nombre": "Czech Republic",
+        "visitante_nombre": "South Africa",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "USA vs Australia",
+        "local_nombre": "USA",
+        "visitante_nombre": "Australia",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
@@ -90,8 +270,8 @@
         "finalizado": false
     },
     {
-        "titulo": "Morocco vs Haiti",
-        "local_nombre": "Morocco",
+        "titulo": "Brazil vs Haiti",
+        "local_nombre": "Brazil",
         "visitante_nombre": "Haiti",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
@@ -99,9 +279,153 @@
         "finalizado": false
     },
     {
-        "titulo": "Scotland vs Brazil",
-        "local_nombre": "Scotland",
-        "visitante_nombre": "Brazil",
+        "titulo": "Turkey vs Paraguay",
+        "local_nombre": "Turkey",
+        "visitante_nombre": "Paraguay",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Germany vs Ivory Coast",
+        "local_nombre": "Germany",
+        "visitante_nombre": "Ivory Coast",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Ecuador vs Curaçao",
+        "local_nombre": "Ecuador",
+        "visitante_nombre": "Curaçao",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Tunisia vs Japan",
+        "local_nombre": "Tunisia",
+        "visitante_nombre": "Japan",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Netherlands vs Sweden",
+        "local_nombre": "Netherlands",
+        "visitante_nombre": "Sweden",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Belgium vs Iran",
+        "local_nombre": "Belgium",
+        "visitante_nombre": "Iran",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Uruguay vs Cape Verde",
+        "local_nombre": "Uruguay",
+        "visitante_nombre": "Cape Verde",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "New Zealand vs Egypt",
+        "local_nombre": "New Zealand",
+        "visitante_nombre": "Egypt",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Spain vs Saudi Arabia",
+        "local_nombre": "Spain",
+        "visitante_nombre": "Saudi Arabia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "France vs Iraq",
+        "local_nombre": "France",
+        "visitante_nombre": "Iraq",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Norway vs Senegal",
+        "local_nombre": "Norway",
+        "visitante_nombre": "Senegal",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Jordan vs Algeria",
+        "local_nombre": "Jordan",
+        "visitante_nombre": "Algeria",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Argentina vs Austria",
+        "local_nombre": "Argentina",
+        "visitante_nombre": "Austria",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "England vs Ghana",
+        "local_nombre": "England",
+        "visitante_nombre": "Ghana",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Panama vs Croatia",
+        "local_nombre": "Panama",
+        "visitante_nombre": "Croatia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Colombia vs DR Congo",
+        "local_nombre": "Colombia",
+        "visitante_nombre": "DR Congo",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Portugal vs Uzbekistan",
+        "local_nombre": "Portugal",
+        "visitante_nombre": "Uzbekistan",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
@@ -126,9 +450,198 @@
         "finalizado": false
     },
     {
+        "titulo": "Morocco vs Haiti",
+        "local_nombre": "Morocco",
+        "visitante_nombre": "Haiti",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Scotland vs Brazil",
+        "local_nombre": "Scotland",
+        "visitante_nombre": "Brazil",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
         "titulo": "South Africa vs South Korea",
         "local_nombre": "South Africa",
         "visitante_nombre": "South Korea",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Czech Republic vs Mexico",
+        "local_nombre": "Czech Republic",
+        "visitante_nombre": "Mexico",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Curaçao vs Ivory Coast",
+        "local_nombre": "Curaçao",
+        "visitante_nombre": "Ivory Coast",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Ecuador vs Germany",
+        "local_nombre": "Ecuador",
+        "visitante_nombre": "Germany",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Tunisia vs Netherlands",
+        "local_nombre": "Tunisia",
+        "visitante_nombre": "Netherlands",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Japan vs Sweden",
+        "local_nombre": "Japan",
+        "visitante_nombre": "Sweden",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Paraguay vs Australia",
+        "local_nombre": "Paraguay",
+        "visitante_nombre": "Australia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Turkey vs USA",
+        "local_nombre": "Turkey",
+        "visitante_nombre": "USA",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Norway vs France",
+        "local_nombre": "Norway",
+        "visitante_nombre": "France",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Senegal vs Iraq",
+        "local_nombre": "Senegal",
+        "visitante_nombre": "Iraq",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Cape Verde vs Saudi Arabia",
+        "local_nombre": "Cape Verde",
+        "visitante_nombre": "Saudi Arabia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Uruguay vs Spain",
+        "local_nombre": "Uruguay",
+        "visitante_nombre": "Spain",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Egypt vs Iran",
+        "local_nombre": "Egypt",
+        "visitante_nombre": "Iran",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "New Zealand vs Belgium",
+        "local_nombre": "New Zealand",
+        "visitante_nombre": "Belgium",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Croatia vs Ghana",
+        "local_nombre": "Croatia",
+        "visitante_nombre": "Ghana",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Panama vs England",
+        "local_nombre": "Panama",
+        "visitante_nombre": "England",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Colombia vs Portugal",
+        "local_nombre": "Colombia",
+        "visitante_nombre": "Portugal",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "DR Congo vs Uzbekistan",
+        "local_nombre": "DR Congo",
+        "visitante_nombre": "Uzbekistan",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Algeria vs Austria",
+        "local_nombre": "Algeria",
+        "visitante_nombre": "Austria",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Jordan vs Argentina",
+        "local_nombre": "Jordan",
+        "visitante_nombre": "Argentina",
         "marcador_real": "Por jugar",
         "goles_L_real": null,
         "goles_V_real": null,
