@@ -1,0 +1,137 @@
+[
+    {
+        "titulo": "Mexico vs South Africa",
+        "local_nombre": "Mexico",
+        "visitante_nombre": "South Africa",
+        "marcador_real": "2 - 0",
+        "goles_L_real": 2,
+        "goles_V_real": 0,
+        "finalizado": true
+    },
+    {
+        "titulo": "South Korea vs Czech Republic",
+        "local_nombre": "South Korea",
+        "visitante_nombre": "Czech Republic",
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "Canada vs Bosnia-Herzegovina",
+        "local_nombre": "Canada",
+        "visitante_nombre": "Bosnia-Herzegovina",
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "USA vs Paraguay",
+        "local_nombre": "USA",
+        "visitante_nombre": "Paraguay",
+        "marcador_real": "4 - 1",
+        "goles_L_real": 4,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "Brazil vs Morocco",
+        "local_nombre": "Brazil",
+        "visitante_nombre": "Morocco",
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true
+    },
+    {
+        "titulo": "Canada vs Qatar",
+        "local_nombre": "Canada",
+        "visitante_nombre": "Qatar",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Czech Republic vs South Africa",
+        "local_nombre": "Czech Republic",
+        "visitante_nombre": "South Africa",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Switzerland vs Bosnia-Herzegovina",
+        "local_nombre": "Switzerland",
+        "visitante_nombre": "Bosnia-Herzegovina",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Mexico vs South Korea",
+        "local_nombre": "Mexico",
+        "visitante_nombre": "South Korea",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Scotland vs Morocco",
+        "local_nombre": "Scotland",
+        "visitante_nombre": "Morocco",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Morocco vs Haiti",
+        "local_nombre": "Morocco",
+        "visitante_nombre": "Haiti",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Scotland vs Brazil",
+        "local_nombre": "Scotland",
+        "visitante_nombre": "Brazil",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Switzerland vs Canada",
+        "local_nombre": "Switzerland",
+        "visitante_nombre": "Canada",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "Bosnia-Herzegovina vs Qatar",
+        "local_nombre": "Bosnia-Herzegovina",
+        "visitante_nombre": "Qatar",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    },
+    {
+        "titulo": "South Africa vs South Korea",
+        "local_nombre": "South Africa",
+        "visitante_nombre": "South Korea",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false
+    }
+]
