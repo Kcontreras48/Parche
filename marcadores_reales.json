@@ -4,8 +4,8 @@
         "local_nombre": "Mexico",
         "visitante_nombre": "South Africa",
         "marcador_real": "2 - 0",
-        "goles_L_real": 2,
-        "goles_V_real": 0,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -13,8 +13,8 @@
         "local_nombre": "South Korea",
         "visitante_nombre": "Czech Republic",
         "marcador_real": "2 - 1",
-        "goles_L_real": 2,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -22,8 +22,8 @@
         "local_nombre": "Canada",
         "visitante_nombre": "Bosnia-Herzegovina",
         "marcador_real": "1 - 1",
-        "goles_L_real": 1,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -31,8 +31,8 @@
         "local_nombre": "USA",
         "visitante_nombre": "Paraguay",
         "marcador_real": "4 - 1",
-        "goles_L_real": 4,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -40,8 +40,8 @@
         "local_nombre": "Qatar",
         "visitante_nombre": "Switzerland",
         "marcador_real": "1 - 1",
-        "goles_L_real": 1,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -49,8 +49,8 @@
         "local_nombre": "Brazil",
         "visitante_nombre": "Morocco",
         "marcador_real": "1 - 1",
-        "goles_L_real": 1,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -58,8 +58,8 @@
         "local_nombre": "Haiti",
         "visitante_nombre": "Scotland",
         "marcador_real": "0 - 1",
-        "goles_L_real": 0,
-        "goles_V_real": 1,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
@@ -67,8 +67,8 @@
         "local_nombre": "Australia",
         "visitante_nombre": "Turkey",
         "marcador_real": "2 - 0",
-        "goles_L_real": 2,
-        "goles_V_real": 0,
+        "goles_L_real": null,
+        "goles_V_real": null,
         "finalizado": false
     },
     {
