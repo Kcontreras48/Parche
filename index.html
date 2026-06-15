@@ -89,6 +89,12 @@
             color: #ffffff; 
             font-weight: bold; 
         }
+        tbody tr:nth-child(even) {
+            background-color: #232323;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #1e1e1e;
+        }
         td.centro, th.centro { 
             text-align: center; 
         }
@@ -198,14 +204,13 @@
         <table>
             <thead>
                 <tr>
-                    <th class="centro" style="width: 12%;">Posición</th>
-                    <th style="width: 48%;">Participante</th>
-                    <th class="centro" style="width: 20%;">Código</th>
+                    <th class="centro" style="width: 15%;">Posición</th>
+                    <th style="width: 65%;">Participante</th>
                     <th class="centro" style="width: 20%;">Puntos Totales</th>
                 </tr>
             </thead>
             <tbody id="tabla-clasificacion">
-                <tr><td colspan="4" class="loading">Cargando clasificación general...</td></tr>
+                <tr><td colspan="3" class="loading">Cargando clasificación general...</td></tr>
             </tbody>
         </table>
     </div>
@@ -300,7 +305,7 @@
                     </button>
                     <div class="partido-details">
                     <table style="width:100%; border-collapse:collapse; background:#1e1e1e; margin-top:0;">
-                    <thead><tr style="background:#2c2c2c; color:white;"><th style="padding:10px;">Participante</th><th class="centro" style="padding:10px;">Predicción</th><th class="centro" style="padding:10px;">Puntos</th></tr></thead><tbody>`;
+                    <thead><tr style="background:#2c2c2c; color:white;"><th style="padding:10px 8px;">Participante</th><th class="centro" style="padding:10px 6px;">Predicción</th><th class="centro" style="padding:10px 6px;">Puntos</th></tr></thead><tbody>`;
 
                 Object.entries(diccionarioParticipantes).forEach(([codigo, nombre]) => {
                     let formUser = prediccionesWeb.find(p => p.form_data.codigo_usuario?.toUpperCase() === codigo);
@@ -327,9 +332,11 @@
                     let colorPuntos = puntos_partido > 0 ? '#28a745' : '#888888';
                     let estiloFila = (puntos_partido === 6) ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
 
-                    tablaPartido += `<tr ${estiloFila}><td style="padding:10px;"><strong>${nombre}</strong></td>
-                    <td class="centro" style="padding:10px;">${pred_texto}</td>
-                    <td class="centro" style="padding:10px;"><span style="color:${colorPuntos}; font-weight:bold;">+${puntos_partido} pts</span></td></tr>`;
+                    const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
+
+                    tablaPartido += `<tr ${estiloFila}><td style="padding:8px 6px;"><strong>${nombre}</strong></td>
+                    <td class="centro" style="padding:8px 4px;">${pred_texto}</td>
+                    <td class="centro" style="padding:8px 4px;"><span style="color:${colorPuntosVistoso}; font-weight:bold; text-shadow: 0 0 3px rgba(57, 211, 83, 0.25);">+${puntos_partido} pts</span></td></tr>`;
                 });
 
                 auditoriaHTML += tablaPartido + `</tbody></table></div></div>`;
@@ -337,14 +344,26 @@
 
             document.getElementById('lista-resultados').innerHTML = auditoriaHTML;
 
-            // Clasificación final ordenada
-            let ranking = Object.keys(diccionarioParticipantes).map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
+            // Clasificación final ordenada con posiciones compartidas en empates
+            let ranking = Object.keys(diccionarioParticipantes)
+                .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
 
-            document.getElementById('tabla-clasificacion').innerHTML = ranking.map((j, i) => `
-                <tr><td class="centro ${i<3?'pos-'+(i+1):''}">${i+1}</td>
-                <td><strong>${j.nombre}</strong></td><td class="centro" style="color:#888;">${j.codigo}</td>
-                <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td></tr>`).join('');
+            let posicionActual = 1;
+            const rankingConPosicion = ranking.map((j, i) => {
+                const hayEmpateConAnterior = i > 0 && ranking[i - 1].puntos === j.puntos;
+                if (!hayEmpateConAnterior) {
+                    posicionActual = i + 1;
+                }
+                return { ...j, posicion: posicionActual };
+            });
+
+            document.getElementById('tabla-clasificacion').innerHTML = rankingConPosicion.map((j) => `
+                <tr>
+                    <td class="centro ${j.posicion <= 3 ? 'pos-' + j.posicion : ''}">${j.posicion}</td>
+                    <td><strong>${j.nombre}</strong></td>
+                    <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td>
+                </tr>`).join('');
         });
     });
 </script>
