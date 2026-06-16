@@ -163,10 +163,10 @@
         "titulo": "France vs Senegal",
         "local_nombre": "France",
         "visitante_nombre": "Senegal",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "3 - 1",
+        "goles_L_real": 3,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1781478780.3832302
     },
     {
