@@ -143,10 +143,10 @@
         "titulo": "Iran vs New Zealand",
         "local_nombre": "Iran",
         "visitante_nombre": "New Zealand",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - w",
+        "goles_L_real": 2,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1781478779.5576706
     },
     {
