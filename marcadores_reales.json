@@ -173,10 +173,10 @@
         "titulo": "Iraq vs Norway",
         "local_nombre": "Iraq",
         "visitante_nombre": "Norway",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 4",
+        "goles_L_real": 1,
+        "goles_V_real": 4,
+        "finalizado": true,
         "ultima_verificacion": 1781478780.7888794
     },
     {
