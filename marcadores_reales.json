@@ -233,10 +233,10 @@
         "titulo": "Portugal vs DR Congo",
         "local_nombre": "Portugal",
         "visitante_nombre": "DR Congo",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1781478783.3736527
     },
     {
