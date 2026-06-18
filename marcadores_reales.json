@@ -223,10 +223,10 @@
         "titulo": "Uzbekistan vs Colombia",
         "local_nombre": "Uzbekistan",
         "visitante_nombre": "Colombia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "¡Ganamos!",
+        "goles_L_real": 1,
+        "goles_V_real": 3,
+        "finalizado": true,
         "ultima_verificacion": 1781733797.3568707
     },
     {
