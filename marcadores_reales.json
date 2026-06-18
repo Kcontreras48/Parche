@@ -213,10 +213,10 @@
         "titulo": "Ghana vs Panama",
         "local_nombre": "Ghana",
         "visitante_nombre": "Panama",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 0",
+        "goles_L_real": 1,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733796.9084263
     },
     {
