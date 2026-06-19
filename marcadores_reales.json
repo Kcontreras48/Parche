@@ -263,10 +263,10 @@
         "titulo": "Mexico vs South Korea",
         "local_nombre": "Mexico",
         "visitante_nombre": "South Korea",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 0",
+        "goles_L_real": 1,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733799.1508708
     },
     {
