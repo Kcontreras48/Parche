@@ -283,10 +283,10 @@
         "titulo": "USA vs Australia",
         "local_nombre": "USA",
         "visitante_nombre": "Australia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 0",
+        "goles_L_real": 2,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733800.054406
     },
     {
