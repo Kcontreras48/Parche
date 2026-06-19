@@ -253,10 +253,10 @@
         "titulo": "Canada vs Qatar",
         "local_nombre": "Canada",
         "visitante_nombre": "Qatar",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "6 - 0",
+        "goles_L_real": 6,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733798.7088263
     },
     {
