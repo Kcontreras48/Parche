@@ -333,10 +333,10 @@
         "titulo": "Ecuador vs Curaçao",
         "local_nombre": "Ecuador",
         "visitante_nombre": "Curaçao",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733801.9442534
     },
     {
