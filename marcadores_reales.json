@@ -363,10 +363,10 @@
         "titulo": "Belgium vs Iran",
         "local_nombre": "Belgium",
         "visitante_nombre": "Iran",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733803.0151029
     },
     {
@@ -393,10 +393,10 @@
         "titulo": "Spain vs Saudi Arabia",
         "local_nombre": "Spain",
         "visitante_nombre": "Saudi Arabia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "4 - 0",
+        "goles_L_real": 4,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733804.0791304
     },
     {
