@@ -343,10 +343,10 @@
         "titulo": "Tunisia vs Japan",
         "local_nombre": "Tunisia",
         "visitante_nombre": "Japan",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 4",
+        "goles_L_real": 0,
+        "goles_V_real": 4,
+        "finalizado": true,
         "ultima_verificacion": 1781733802.3030512
     },
     {
