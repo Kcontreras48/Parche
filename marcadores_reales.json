@@ -373,10 +373,10 @@
         "titulo": "Uruguay vs Cape Verde",
         "local_nombre": "Uruguay",
         "visitante_nombre": "Cape Verde",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 2",
+        "goles_L_real": 2,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1781733803.3703668
     },
     {
