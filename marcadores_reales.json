@@ -443,10 +443,10 @@
         "titulo": "England vs Ghana",
         "local_nombre": "England",
         "visitante_nombre": "Ghana",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733805.8446827
     },
     {
