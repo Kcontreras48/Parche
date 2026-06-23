@@ -473,10 +473,10 @@
         "titulo": "Portugal vs Uzbekistan",
         "local_nombre": "Portugal",
         "visitante_nombre": "Uzbekistan",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "5 - 0",
+        "goles_L_real": 5,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1781733806.902687
     },
     {
