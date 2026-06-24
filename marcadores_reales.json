@@ -463,10 +463,10 @@
         "titulo": "Colombia vs DR Congo",
         "local_nombre": "Colombia",
         "visitante_nombre": "DR Congo",
-        "marcador_real": "1 - 0",
-        "goles_L_real": 1,
-        "goles_V_real": 0,
-        "finalizado": true,
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
         "ultima_verificacion": 1781733806.545781
     },
     {
