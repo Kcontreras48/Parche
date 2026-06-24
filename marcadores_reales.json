@@ -463,11 +463,11 @@
         "titulo": "Colombia vs DR Congo",
         "local_nombre": "Colombia",
         "visitante_nombre": "DR Congo",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
-        "ultima_verificacion": 1781733806.545781
+        "marcador_real": "1 - 0",
+        "goles_L_real": 1,
+        "goles_V_real": 0,
+        "finalizado": true,
+        "ultima_verificacion": 1782319268.0738406
     },
     {
         "titulo": "Portugal vs Uzbekistan",
@@ -487,7 +487,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733807.2632995
+        "ultima_verificacion": 1782319268.4151545
     },
     {
         "titulo": "Bosnia-Herzegovina vs Qatar",
@@ -497,7 +497,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733807.621351
+        "ultima_verificacion": 1782319268.7611465
     },
     {
         "titulo": "Morocco vs Haiti",
@@ -507,7 +507,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733807.9821384
+        "ultima_verificacion": 1782319269.1082702
     },
     {
         "titulo": "Scotland vs Brazil",
@@ -517,7 +517,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733808.3511436
+        "ultima_verificacion": 1782319269.458552
     },
     {
         "titulo": "South Africa vs South Korea",
@@ -527,7 +527,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733808.7019906
+        "ultima_verificacion": 1782319269.8024223
     },
     {
         "titulo": "Czech Republic vs Mexico",
@@ -537,7 +537,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733809.0569634
+        "ultima_verificacion": 1782319270.1504364
     },
     {
         "titulo": "Curaçao vs Ivory Coast",
@@ -547,7 +547,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733809.4127226
+        "ultima_verificacion": 1782319270.496007
     },
     {
         "titulo": "Ecuador vs Germany",
@@ -557,7 +557,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733809.7646344
+        "ultima_verificacion": 1782319270.836653
     },
     {
         "titulo": "Tunisia vs Netherlands",
@@ -567,7 +567,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733810.1217632
+        "ultima_verificacion": 1782319271.1849918
     },
     {
         "titulo": "Japan vs Sweden",
@@ -577,7 +577,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733810.4876883
+        "ultima_verificacion": 1782319271.5346038
     },
     {
         "titulo": "Paraguay vs Australia",
@@ -587,7 +587,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733810.8407426
+        "ultima_verificacion": 1782319271.8805606
     },
     {
         "titulo": "Turkey vs USA",
@@ -597,7 +597,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733811.1941533
+        "ultima_verificacion": 1782319272.2327855
     },
     {
         "titulo": "Norway vs France",
@@ -607,7 +607,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733811.5560465
+        "ultima_verificacion": 1782319272.5863338
     },
     {
         "titulo": "Senegal vs Iraq",
@@ -617,7 +617,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733811.918718
+        "ultima_verificacion": 1782319272.943256
     },
     {
         "titulo": "Cape Verde vs Saudi Arabia",
@@ -627,7 +627,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733812.2774374
+        "ultima_verificacion": 1782319273.2845736
     },
     {
         "titulo": "Uruguay vs Spain",
@@ -637,7 +637,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733812.6392906
+        "ultima_verificacion": 1782319273.6279693
     },
     {
         "titulo": "Egypt vs Iran",
@@ -647,7 +647,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733812.9929676
+        "ultima_verificacion": 1782319273.9743414
     },
     {
         "titulo": "New Zealand vs Belgium",
@@ -657,7 +657,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733813.3607993
+        "ultima_verificacion": 1782319274.3205574
     },
     {
         "titulo": "Croatia vs Ghana",
@@ -667,7 +667,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733813.7618222
+        "ultima_verificacion": 1782319274.6697352
     },
     {
         "titulo": "Panama vs England",
@@ -677,7 +677,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733814.1191812
+        "ultima_verificacion": 1782319275.012573
     },
     {
         "titulo": "Colombia vs Portugal",
@@ -687,7 +687,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733814.4804661
+        "ultima_verificacion": 1782319275.377929
     },
     {
         "titulo": "DR Congo vs Uzbekistan",
@@ -697,7 +697,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733814.8410585
+        "ultima_verificacion": 1782319275.7289839
     },
     {
         "titulo": "Algeria vs Austria",
@@ -707,7 +707,7 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733815.2074234
+        "ultima_verificacion": 1782319276.071201
     },
     {
         "titulo": "Jordan vs Argentina",
@@ -717,6 +717,6 @@
         "goles_L_real": null,
         "goles_V_real": null,
         "finalizado": false,
-        "ultima_verificacion": 1781733815.558052
+        "ultima_verificacion": 1782319276.4172182
     }
 ]
