@@ -453,10 +453,10 @@
         "titulo": "Panama vs Croatia",
         "local_nombre": "Panama",
         "visitante_nombre": "Croatia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1781733806.198251
     },
     {
