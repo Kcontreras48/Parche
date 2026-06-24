@@ -483,20 +483,20 @@
         "titulo": "Switzerland vs Canada",
         "local_nombre": "Switzerland",
         "visitante_nombre": "Canada",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319268.4151545
     },
     {
         "titulo": "Bosnia-Herzegovina vs Qatar",
         "local_nombre": "Bosnia-Herzegovina",
         "visitante_nombre": "Qatar",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "3 - 1",
+        "goles_L_real": 3,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319268.7611465
     },
     {
