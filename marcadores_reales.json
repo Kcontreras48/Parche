@@ -543,20 +543,20 @@
         "titulo": "Curaçao vs Ivory Coast",
         "local_nombre": "Curaçao",
         "visitante_nombre": "Ivory Coast",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 2",
+        "goles_L_real": 0,
+        "goles_V_real": 2,
+        "finalizado": 0 - 2,
         "ultima_verificacion": 1782319270.496007
     },
     {
         "titulo": "Ecuador vs Germany",
         "local_nombre": "Ecuador",
         "visitante_nombre": "Germany",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319270.836653
     },
     {
