@@ -503,20 +503,20 @@
         "titulo": "Morocco vs Haiti",
         "local_nombre": "Morocco",
         "visitante_nombre": "Haiti",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "4 - 2",
+        "goles_L_real": 4,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1782319269.1082702
     },
     {
         "titulo": "Scotland vs Brazil",
         "local_nombre": "Scotland",
         "visitante_nombre": "Brazil",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 3",
+        "goles_L_real": 0,
+        "goles_V_real": 3,
+        "finalizado": true,
         "ultima_verificacion": 1782319269.458552
     },
     {
