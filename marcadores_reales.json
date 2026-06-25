@@ -523,20 +523,20 @@
         "titulo": "South Africa vs South Korea",
         "local_nombre": "South Africa",
         "visitante_nombre": "South Korea",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 0",
+        "goles_L_real": 1,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782319269.8024223
     },
     {
         "titulo": "Czech Republic vs Mexico",
         "local_nombre": "Czech Republic",
         "visitante_nombre": "Mexico",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 3",
+        "goles_L_real": 0,
+        "goles_V_real": 3,
+        "finalizado": true,
         "ultima_verificacion": 1782319270.1504364
     },
     {
