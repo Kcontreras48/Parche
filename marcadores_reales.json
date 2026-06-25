@@ -546,7 +546,7 @@
         "marcador_real": "0 - 2",
         "goles_L_real": 0,
         "goles_V_real": 2,
-        "finalizado": 0 - 2,
+        "finalizado": true,
         "ultima_verificacion": 1782319270.496007
     },
     {
