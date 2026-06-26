@@ -603,20 +603,20 @@
         "titulo": "Norway vs France",
         "local_nombre": "Norway",
         "visitante_nombre": "France",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 4",
+        "goles_L_real": 1,
+        "goles_V_real": 4,
+        "finalizado": true,
         "ultima_verificacion": 1782319272.5863338
     },
     {
         "titulo": "Senegal vs Iraq",
         "local_nombre": "Senegal",
         "visitante_nombre": "Iraq",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "5 - 0",
+        "goles_L_real": 5,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782319272.943256
     },
     {
