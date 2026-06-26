@@ -583,20 +583,20 @@
         "titulo": "Paraguay vs Australia",
         "local_nombre": "Paraguay",
         "visitante_nombre": "Australia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782319271.8805606
     },
     {
         "titulo": "Turkey vs USA",
         "local_nombre": "Turkey",
         "visitante_nombre": "USA",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "3 - 2",
+        "goles_L_real": 3,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1782319272.2327855
     },
     {
