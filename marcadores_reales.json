@@ -563,20 +563,20 @@
         "titulo": "Tunisia vs Netherlands",
         "local_nombre": "Tunisia",
         "visitante_nombre": "Netherlands",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 3",
+        "goles_L_real": 1,
+        "goles_V_real": 3,
+        "finalizado": true,
         "ultima_verificacion": 1782319271.1849918
     },
     {
         "titulo": "Japan vs Sweden",
         "local_nombre": "Japan",
         "visitante_nombre": "Sweden",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319271.5346038
     },
     {
