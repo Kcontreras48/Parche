@@ -643,20 +643,20 @@
         "titulo": "Egypt vs Iran",
         "local_nombre": "Egypt",
         "visitante_nombre": "Iran",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319273.9743414
     },
     {
         "titulo": "New Zealand vs Belgium",
         "local_nombre": "New Zealand",
         "visitante_nombre": "Belgium",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 5",
+        "goles_L_real": 1,
+        "goles_V_real": 5,
+        "finalizado": true,
         "ultima_verificacion": 1782319274.3205574
     },
     {
