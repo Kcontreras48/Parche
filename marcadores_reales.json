@@ -623,20 +623,20 @@
         "titulo": "Cape Verde vs Saudi Arabia",
         "local_nombre": "Cape Verde",
         "visitante_nombre": "Saudi Arabia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 0",
+        "goles_L_real": 0,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782319273.2845736
     },
     {
         "titulo": "Uruguay vs Spain",
         "local_nombre": "Uruguay",
         "visitante_nombre": "Spain",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782319273.6279693
     },
     {
