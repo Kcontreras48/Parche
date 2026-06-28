@@ -70,6 +70,29 @@
             display: block; 
         }
 
+        /* FILTRO SELECTOR DE RONDAS */
+        .selector-fase-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .selector-fase {
+            background: #2c2c2c;
+            color: white;
+            border: 1px solid #444;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .selector-fase:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
         /* ESTILOS DE LAS TABLAS (CLASIFICACIÓN Y AUDITORÍA) */
         table {
             width: 100%;
@@ -160,25 +183,6 @@
         .partido-chip.pending {
             background: #555555;
         }
-        .partido-header {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .partido-header h3 {
-            margin: 5px 0;
-            color: #ffffff;
-            font-size: 18px;
-        }
-        .badge-resultado {
-            background: #28a745;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-block;
-            margin-top: 5px;
-        }
         
         .loading { 
             text-align: center; 
@@ -216,6 +220,14 @@
     </div>
 
     <div id="resultados-tab" class="tab-content">
+        <div class="selector-fase-container">
+            <label for="select-fase"><strong>Filtrar Ronda:</strong></label>
+            <select id="select-fase" class="selector-fase">
+                <option value="grupos">Fase de Grupos</option>
+                <option value="r32">Ronda de 32 (16avos)</option>
+            </select>
+        </div>
+
         <div id="lista-resultados">
             <p class="loading">Cargando planillas de auditoría de los partidos...</p>
         </div>
@@ -247,55 +259,52 @@
             "dr congo": "dr congo", "congo dr": "dr congo"
         };
 
+        let partidosGruposGlobal = [];
+        let partidosR32Global = [];
+        let prediccionesGlobal = [];
+        let puntosAcumulados = {};
+
         function normalizarNombre(nombre) {
             let n = nombre.toLowerCase().trim();
             if(traductorEquipos[n]) n = traductorEquipos[n];
             return n.replace(/ /g, '_');
         }
 
-        function calcularPuntosPartido(predLocal, predVisitante, golesLocalReal, golesVisitanteReal) {
+        function calcularPuntosPartido(predLocal, predVisitante, golesLocalReal, golesVisitanteReal, esR32 = false) {
             if (!Number.isFinite(golesLocalReal) || !Number.isFinite(golesVisitanteReal)) {
                 return 0;
             }
 
+            // Nueva regla para Ronda de 32: Exacto = 8 pts (4 resultado + 4 exacto)
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
-                return 6;
+                return esR32 ? 8 : 6;
             }
 
-            const resultadoPredicho = predLocal === predVisitante
-                ? 0
-                : predLocal > predVisitante ? 1 : -1;
-            const resultadoReal = golesLocalReal === golesVisitanteReal
-                ? 0
-                : golesLocalReal > golesVisitanteReal ? 1 : -1;
+            const resultadoPredicho = predLocal === predVisitante ? 0 : predLocal > predVisitante ? 1 : -1;
+            const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
-            return resultadoPredicho === resultadoReal ? 3 : 0;
+            if (resultadoPredicho === resultadoReal) {
+                return esR32 ? 4 : 3;
+            }
+
+            return 0;
         }
 
-        Promise.all([
-            fetch('predicciones_locales.json').then(res => res.json()),
-            fetch('marcadores_reales.json').then(res => res.json())
-        ]).then(([prediccionesWeb, marcadoresReales]) => {
-            
-            // Inicialización de los puntajes acumulados
-            let puntosAcumulados = {};
-            Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
-
-            let auditoriaHTML = '';
+        function procesarFase(partidos, prediccionesWeb, acumularPuntos, esR32 = false) {
+            let htmlHTML = '';
             let llavesFormulario = (prediccionesWeb.length > 0) ? Object.keys(prediccionesWeb[0].form_data) : [];
 
-            marcadoresReales.forEach(partido => {
+            partidos.forEach(partido => {
                 let loc_clean = normalizarNombre(partido.local_nombre);
                 let vis_clean = normalizarNombre(partido.visitante_nombre);
 
                 let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
                 let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
 
-                const cardOpen = '';
                 const estadoChip = partido.finalizado ? 'Marcador: ' + partido.marcador_real : '⚽ Partido por Jugar';
                 const chipClass = partido.finalizado ? '' : 'pending';
 
-                let tablaPartido = `<div class="partido-card ${cardOpen}">
+                let tablaPartido = `<div class="partido-card">
                     <button class="partido-summary" type="button" onclick="this.closest('.partido-card').classList.toggle('open')" aria-expanded="false">
                         <span>
                             <h3>${partido.titulo}</h3>
@@ -322,16 +331,19 @@
                                 p_L,
                                 p_V,
                                 partido.finalizado ? partido.goles_L_real : null,
-                                partido.finalizado ? partido.goles_V_real : null
+                                partido.finalizado ? partido.goles_V_real : null,
+                                esR32
                             );
                         }
                     }
 
-                    puntosAcumulados[codigo] += puntos_partido;
+                    if (acumularPuntos) {
+                        puntosAcumulados[codigo] += puntos_partido;
+                    }
 
-                    let colorPuntos = puntos_partido > 0 ? '#28a745' : '#888888';
-                    let estiloFila = (puntos_partido === 6) ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
-
+                    // Resaltar marcadores perfectos (8 pts en R32 o 6 pts en Grupos)
+                    let esExacto Perfecto = (esR32 && puntos_partido === 8) || (!esR32 && puntos_partido === 6);
+                    let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
                     const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
 
                     tablaPartido += `<tr ${estiloFila}><td style="padding:8px 6px;"><strong>${nombre}</strong></td>
@@ -339,12 +351,29 @@
                     <td class="centro" style="padding:8px 4px;"><span style="color:${colorPuntosVistoso}; font-weight:bold; text-shadow: 0 0 3px rgba(57, 211, 83, 0.25);">+${puntos_partido} pts</span></td></tr>`;
                 });
 
-                auditoriaHTML += tablaPartido + `</tbody></table></div></div>`;
+                htmlHTML += tablaPartido + `</tbody></table></div></div>`;
             });
 
-            document.getElementById('lista-resultados').innerHTML = auditoriaHTML;
+            return htmlHTML;
+        }
 
-            // Clasificación final ordenada con posiciones compartidas en empates
+        function inicializarDashboard() {
+            Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
+
+            // Procesar acumulados (Grupos usa regla normal, R32 usa la regla de +4 y +4)
+            const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGlobal, true, false);
+            const htmlR32 = procesarFase(partidosR32Global, prediccionesGlobal, true, true);
+
+            document.getElementById('lista-resultados').innerHTML = htmlGrupos;
+
+            document.getElementById('select-fase').addEventListener('change', function(e) {
+                if(e.target.value === 'grupos') {
+                    document.getElementById('lista-resultados').innerHTML = htmlGrupos;
+                } else if(e.target.value === 'r32') {
+                    document.getElementById('lista-resultados').innerHTML = htmlR32;
+                }
+            });
+
             let ranking = Object.keys(diccionarioParticipantes)
                 .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
@@ -364,9 +393,23 @@
                     <td><strong>${j.nombre}</strong></td>
                     <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td>
                 </tr>`).join('');
+        }
+
+        Promise.all([
+            fetch('predicciones_locales.json').then(res => res.json()),
+            fetch('marcadores_reales.json').then(res => res.json()),
+            fetch('marcadores_reales2.json').then(res => res.json()).catch(() => [])
+        ]).then(([prediccionesWeb, marcadoresGrupos, marcadoresR32]) => {
+            prediccionesGlobal = prediccionesWeb;
+            partidosGruposGlobal = marcadoresGrupos;
+            partidosR32Global = marcadoresR32;
+            
+            inicializarDashboard();
+        }).catch(err => {
+            console.error("Error cargando planillas:", err);
+            document.getElementById('lista-resultados').innerHTML = `<p style="color:#ff4c4c; text-align:center;">Error crítico al cargar las fuentes JSON del servidor.</p>`;
         });
     });
 </script>
-    
 </body>
 </html>
