@@ -261,7 +261,8 @@
 
         let partidosGruposGlobal = [];
         let partidosR32Global = [];
-        let prediccionesGlobal = [];
+        let prediccionesGruposGlobal = [];
+        let prediccionesR32Global = [];
         let puntosAcumulados = {};
 
         function normalizarNombre(nombre) {
@@ -289,7 +290,7 @@
             return 0;
         }
 
-        function procesarFase(partidos, prediccionesWeb, acumularPuntos, esR32 = false) {
+        function procesarFase(partidos, prediccionesWeb, esR32 = false) {
             let htmlHTML = '';
             let llavesFormulario = (prediccionesWeb.length > 0) ? Object.keys(prediccionesWeb[0].form_data) : [];
 
@@ -336,9 +337,8 @@
                         }
                     }
 
-                    if (acumularPuntos) {
-                        puntosAcumulados[codigo] += puntos_partido;
-                    }
+                    // Sumar al total acumulado en background
+                    puntosAcumulados[codigo] += puntos_partido;
 
                     let esExactoPerfecto = (esR32 && puntos_partido === 8) || (!esR32 && puntos_partido === 6);
                     let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
@@ -356,13 +356,17 @@
         }
 
         function inicializarDashboard() {
+            // 1. Resetear puntos generales
             Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
 
-            const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGlobal, true, false);
-            const htmlR32 = procesarFase(partidosR32Global, prediccionesGlobal, true, true);
+            // 2. Procesar y renderizar las fases cruzando cada una con sus respectivas predicciones origen
+            const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGruposGlobal, false);
+            const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, true);
 
+            // Mostrar Fase de Grupos por defecto
             document.getElementById('lista-resultados').innerHTML = htmlGrupos;
 
+            // 3. Listener para el selector de rondas en la vista de auditoría
             document.getElementById('select-fase').addEventListener('change', function(e) {
                 if(e.target.value === 'grupos') {
                     document.getElementById('lista-resultados').innerHTML = htmlGrupos;
@@ -371,6 +375,7 @@
                 }
             });
 
+            // 4. Calcular el escalafón global consolidado
             let ranking = Object.keys(diccionarioParticipantes)
                 .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
@@ -392,18 +397,21 @@
                 </tr>`).join('');
         }
 
+        // Carga secuencial y asíncrona de las 4 bases de datos JSON
         Promise.all([
             fetch('predicciones_locales.json').then(res => res.json()),
+            fetch('predicciones_locales2.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales.json').then(res => res.json()),
             fetch('marcadores_reales2.json').then(res => res.json()).catch(() => [])
-        ]).then(([prediccionesWeb, marcadoresGrupos, marcadoresR32]) => {
-            prediccionesGlobal = prediccionesWeb;
+        ]).then(([prediccionesGrupos, prediccionesR32, marcadoresGrupos, marcadoresR32]) => {
+            prediccionesGruposGlobal = prediccionesGrupos;
+            prediccionesR32Global = prediccionesR32;
             partidosGruposGlobal = marcadoresGrupos;
             partidosR32Global = marcadoresR32;
             
             inicializarDashboard();
         }).catch(err => {
-            console.error("Error cargando planillas:", err);
+            console.error("Error cargando archivos del dashboard:", err);
             document.getElementById('lista-resultados').innerHTML = `<p style="color:#ff4c4c; text-align:center;">Error crítico al cargar las fuentes JSON del servidor.</p>`;
         });
     });
