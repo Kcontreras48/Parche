@@ -93,10 +93,10 @@
         "titulo": "Ivory Coast vs Norway",
         "local_nombre": "Ivory Coast",
         "visitante_nombre": "Norway",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 2",
+        "goles_L_real": 1,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
