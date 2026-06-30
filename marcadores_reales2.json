@@ -3,10 +3,10 @@
         "titulo": "Germany vs Paraguay",
         "local_nombre": "Germany",
         "visitante_nombre": "Paraguay",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
@@ -23,10 +23,10 @@
         "titulo": "South Africa vs Canada",
         "local_nombre": "South Africa",
         "visitante_nombre": "Canada",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
@@ -83,10 +83,10 @@
         "titulo": "Brazil vs Japan",
         "local_nombre": "Brazil",
         "visitante_nombre": "Japan",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
