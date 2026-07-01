@@ -103,10 +103,10 @@
         "titulo": "Mexico vs Ecuador",
         "local_nombre": "Mexico",
         "visitante_nombre": "Ecuador",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 0",
+        "goles_L_real": 2,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
