@@ -53,10 +53,10 @@
         "titulo": "Spain vs Austria",
         "local_nombre": "Spain",
         "visitante_nombre": "Austria",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "3 - 0",
+        "goles_L_real": 3,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
