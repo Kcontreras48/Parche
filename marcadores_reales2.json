@@ -63,10 +63,10 @@
         "titulo": "USA vs Bosnia-Herzegovina",
         "local_nombre": "USA",
         "visitante_nombre": "Bosnia-Herzegovina",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 0",
+        "goles_L_real": 2,
+        "goles_V_real": 0,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
