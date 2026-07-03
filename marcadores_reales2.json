@@ -43,10 +43,10 @@
         "titulo": "Portugal vs Croatia",
         "local_nombre": "Portugal",
         "visitante_nombre": "Croatia",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
