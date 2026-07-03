@@ -133,10 +133,10 @@
         "titulo": "Australia vs Egypt",
         "local_nombre": "Australia",
         "visitante_nombre": "Egypt",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 1",
+        "goles_L_real": 1,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1782662400
     },
     {
