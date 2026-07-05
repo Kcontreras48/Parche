@@ -1,0 +1,82 @@
+[
+    {
+        "titulo": "France vs Paraguay",
+        "local_nombre": "France",
+        "visitante_nombre": "Paraguay",
+        "marcador_real": "1 - 0",
+        "goles_L_real": 1,
+        "goles_V_real": 0,
+        "finalizado": true,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Morocco vs Canada",
+        "local_nombre": "Morocco",
+        "visitante_nombre": "Canada",
+        "marcador_real": "3 - 0",
+        "goles_L_real": 3,
+        "goles_V_real": 0,
+        "finalizado": true,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Portugal vs Spain",
+        "local_nombre": "Portugal",
+        "visitante_nombre": "Spain",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "USA vs Belgium",
+        "local_nombre": "USA",
+        "visitante_nombre": "Belgium",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Brazil vs Norway",
+        "local_nombre": "Brazil",
+        "visitante_nombre": "Norway",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Mexico vs England",
+        "local_nombre": "Mexico",
+        "visitante_nombre": "England",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Argentina vs Egypt",
+        "local_nombre": "Argentina",
+        "visitante_nombre": "Egypt",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    },
+    {
+        "titulo": "Switzerland vs Colombia",
+        "local_nombre": "Switzerland",
+        "visitante_nombre": "Colombia",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783296000
+    }
+]
