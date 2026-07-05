@@ -220,11 +220,13 @@
     </div>
 
     <div id="resultados-tab" class="tab-content">
+        <!-- MENÚ DESPLEGABLE POR RONDA -->
         <div class="selector-fase-container">
             <label for="select-fase"><strong>Filtrar Ronda:</strong></label>
             <select id="select-fase" class="selector-fase">
                 <option value="grupos">Fase de Grupos</option>
                 <option value="r32">Ronda de 32 (16avos)</option>
+                <option value="r16">Octavos de Final</option>
             </select>
         </div>
 
@@ -261,8 +263,10 @@
 
         let partidosGruposGlobal = [];
         let partidosR32Global = [];
+        let partidosR16Global = [];
         let prediccionesGruposGlobal = [];
         let prediccionesR32Global = [];
+        let prediccionesR16Global = [];
         let puntosAcumulados = {};
 
         function normalizarNombre(nombre) {
@@ -271,26 +275,32 @@
             return n.replace(/ /g, '_');
         }
 
-        function calcularPuntosPartido(predLocal, predVisitante, golesLocalReal, golesVisitanteReal, esR32 = false) {
+        function calcularPuntosPartido(predLocal, predVisitante, golesLocalReal, golesVisitanteReal, fase = 'grupos') {
             if (!Number.isFinite(golesLocalReal) || !Number.isFinite(golesVisitanteReal)) {
                 return 0;
             }
 
+            // Validación de marcador exacto por fase
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
-                return esR32 ? 8 : 6;
+                if (fase === 'r16') return 12; // 5 resultado + 7 exacto
+                if (fase === 'r32') return 8;  // 4 resultado + 4 exacto
+                return 6;                      // Grupos (esquema viejo)
             }
 
             const resultadoPredicho = predLocal === predVisitante ? 0 : predLocal > predVisitante ? 1 : -1;
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
+            // Validación de resultado (ganador/empate)
             if (resultadoPredicho === resultadoReal) {
-                return esR32 ? 4 : 3;
+                if (fase === 'r16') return 5;
+                if (fase === 'r32') return 4;
+                return 3;
             }
 
             return 0;
         }
 
-        function procesarFase(partidos, prediccionesWeb, esR32 = false) {
+        function procesarFase(partidos, prediccionesWeb, fase = 'grupos') {
             let htmlHTML = '';
             let llavesFormulario = (prediccionesWeb.length > 0) ? Object.keys(prediccionesWeb[0].form_data) : [];
 
@@ -332,15 +342,14 @@
                                 p_V,
                                 partido.finalizado ? partido.goles_L_real : null,
                                 partido.finalizado ? partido.goles_V_real : null,
-                                esR32
+                                fase
                             );
                         }
                     }
 
-                    // Sumar al total acumulado en background
                     puntosAcumulados[codigo] += puntos_partido;
 
-                    let esExactoPerfecto = (esR32 && puntos_partido === 8) || (!esR32 && puntos_partido === 6);
+                    let esExactoPerfecto = (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
                     let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
                     const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
 
@@ -356,26 +365,28 @@
         }
 
         function inicializarDashboard() {
-            // 1. Resetear puntos generales
             Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
 
-            // 2. Procesar y renderizar las fases cruzando cada una con sus respectivas predicciones origen
-            const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGruposGlobal, false);
-            const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, true);
+            // Se ejecutan las funciones acumulando los puntos en un orden estricto
+            const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGruposGlobal, 'grupos');
+            const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, 'r32');
+            const htmlR16 = procesarFase(partidosR16Global, prediccionesR16Global, 'r16');
 
-            // Mostrar Fase de Grupos por defecto
+            // Render por defecto
             document.getElementById('lista-resultados').innerHTML = htmlGrupos;
 
-            // 3. Listener para el selector de rondas en la vista de auditoría
+            // Gestión del menú dinámico de visualización
             document.getElementById('select-fase').addEventListener('change', function(e) {
                 if(e.target.value === 'grupos') {
                     document.getElementById('lista-resultados').innerHTML = htmlGrupos;
                 } else if(e.target.value === 'r32') {
                     document.getElementById('lista-resultados').innerHTML = htmlR32;
+                } else if(e.target.value === 'r16') {
+                    document.getElementById('lista-resultados').innerHTML = htmlR16;
                 }
             });
 
-            // 4. Calcular el escalafón global consolidado
+            // Escalafón unificado
             let ranking = Object.keys(diccionarioParticipantes)
                 .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
@@ -397,21 +408,25 @@
                 </tr>`).join('');
         }
 
-        // Carga secuencial y asíncrona de las 4 bases de datos JSON
+        // Carga en paralelo los 6 archivos fundamentales de datos
         Promise.all([
             fetch('predicciones_locales.json').then(res => res.json()),
             fetch('predicciones_locales2.json').then(res => res.json()).catch(() => []),
+            fetch('predicciones_locales3.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales.json').then(res => res.json()),
-            fetch('marcadores_reales2.json').then(res => res.json()).catch(() => [])
-        ]).then(([prediccionesGrupos, prediccionesR32, marcadoresGrupos, marcadoresR32]) => {
-            prediccionesGruposGlobal = prediccionesGrupos;
-            prediccionesR32Global = prediccionesR32;
-            partidosGruposGlobal = marcadoresGrupos;
-            partidosR32Global = marcadoresR32;
+            fetch('marcadores_reales2.json').then(res => res.json()).catch(() => []),
+            fetch('marcadores_reales3.json').then(res => res.json()).catch(() => [])
+        ]).then(([predGrupos, predR32, predR16, marcGrupos, marcR32, marcR16]) => {
+            prediccionesGruposGlobal = predGrupos;
+            prediccionesR32Global = predR32;
+            prediccionesR16Global = predR16;
+            partidosGruposGlobal = marcGrupos;
+            partidosR32Global = marcR32;
+            partidosR16Global = marcR16;
             
             inicializarDashboard();
         }).catch(err => {
-            console.error("Error cargando archivos del dashboard:", err);
+            console.error("Error al arrancar el panel mundialista:", err);
             document.getElementById('lista-resultados').innerHTML = `<p style="color:#ff4c4c; text-align:center;">Error crítico al cargar las fuentes JSON del servidor.</p>`;
         });
     });
