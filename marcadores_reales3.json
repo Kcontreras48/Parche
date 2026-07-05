@@ -1,21 +1,21 @@
 [
     {
-        "titulo": "France vs Paraguay",
-        "local_nombre": "France",
-        "visitante_nombre": "Paraguay",
-        "marcador_real": "1 - 0",
-        "goles_L_real": 1,
-        "goles_V_real": 0,
+        "titulo": "Paraguay vs France",
+        "local_nombre": "Paraguay",
+        "visitante_nombre": "France",
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
         "finalizado": true,
         "ultima_verificacion": 1783296000
     },
     {
-        "titulo": "Morocco vs Canada",
-        "local_nombre": "Morocco",
-        "visitante_nombre": "Canada",
-        "marcador_real": "3 - 0",
-        "goles_L_real": 3,
-        "goles_V_real": 0,
+        "titulo": "Canada vs Morocco",
+        "local_nombre": "Canada",
+        "visitante_nombre": "Morocco",
+        "marcador_real": "0 - 3",
+        "goles_L_real": 0,
+        "goles_V_real": 3,
         "finalizado": true,
         "ultima_verificacion": 1783296000
     },
