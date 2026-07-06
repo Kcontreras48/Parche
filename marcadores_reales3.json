@@ -23,10 +23,10 @@
         "titulo": "Portugal vs Spain",
         "local_nombre": "Portugal",
         "visitante_nombre": "Spain",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 1",
+        "goles_L_real": 0,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1783296000
     },
     {
