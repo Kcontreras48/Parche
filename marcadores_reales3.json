@@ -53,10 +53,10 @@
         "titulo": "Mexico vs England",
         "local_nombre": "Mexico",
         "visitante_nombre": "England",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 3",
+        "goles_L_real": 2,
+        "goles_V_real": 3,
+        "finalizado": true,
         "ultima_verificacion": 1783296000
     },
     {
