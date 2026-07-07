@@ -33,10 +33,10 @@
         "titulo": "USA vs Belgium",
         "local_nombre": "USA",
         "visitante_nombre": "Belgium",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "1 - 4",
+        "goles_L_real": 1,
+        "goles_V_real": 4,
+        "finalizado": true,
         "ultima_verificacion": 1783296000
     },
     {
