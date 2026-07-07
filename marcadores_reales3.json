@@ -63,10 +63,10 @@
         "titulo": "Argentina vs Egypt",
         "local_nombre": "Argentina",
         "visitante_nombre": "Egypt",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "3 - 2",
+        "goles_L_real": 3,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1783296000
     },
     {
