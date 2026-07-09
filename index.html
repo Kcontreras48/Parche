@@ -93,7 +93,7 @@
             border-color: #28a745;
         }
 
-        /* ESTILOS DE LAS TABLAS (CLASIFICACIÓN Y AUDITORÍA) */
+        /* ESTILOS DE LAS TABLAS (CLASIFICACIÓN, AUDITORÍA Y ESPECIAL) */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -190,6 +190,11 @@
             padding: 20px; 
             font-style: italic;
         }
+        
+        .tabla-scroll {
+            width: 100%;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -202,6 +207,7 @@
     <div class="tabs">
         <button class="tab-btn active" onclick="switchTab('clasificacion-tab', this)">🏆 Clasificación</button>
         <button class="tab-btn" onclick="switchTab('resultados-tab', this)">👁️ Auditoría por Partido</button>
+        <button class="tab-btn" onclick="switchTab('especial-tab', this)">✨ Especial</button>
     </div>
 
     <div id="clasificacion-tab" class="tab-content active">
@@ -227,11 +233,34 @@
                 <option value="grupos">Fase de Grupos</option>
                 <option value="r32">Ronda de 32 (16avos)</option>
                 <option value="r16">Octavos de Final</option>
+                <option value="r8">Cuartos de Final</option>
             </select>
         </div>
 
         <div id="lista-resultados">
             <p class="loading">Cargando planillas de auditoría de los partidos...</p>
+        </div>
+    </div>
+
+    <div id="especial-tab" class="tab-content">
+        <div class="tabla-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Participante</th>
+                        <th>Campeón</th>
+                        <th>Subcampeón</th>
+                        <th>Tercero</th>
+                        <th>Cuarto</th>
+                        <th>Bota de Oro</th>
+                        <th>Balón de Oro</th>
+                        <th>Guante de Oro</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-especial">
+                    <tr><td colspan="8" class="loading">Cargando elecciones especiales a largo plazo...</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -264,9 +293,11 @@
         let partidosGruposGlobal = [];
         let partidosR32Global = [];
         let partidosR16Global = [];
+        let partidosR8Global = [];
         let prediccionesGruposGlobal = [];
         let prediccionesR32Global = [];
         let prediccionesR16Global = [];
+        let prediccionesR8Global = [];
         let puntosAcumulados = {};
 
         function normalizarNombre(nombre) {
@@ -280,18 +311,20 @@
                 return 0;
             }
 
-            // Validación de marcador exacto por fase
+            // Marcador exacto por fase
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
+                if (fase === 'r8') return 20;  // 8 resultado + 12 exacto
                 if (fase === 'r16') return 12; // 5 resultado + 7 exacto
                 if (fase === 'r32') return 8;  // 4 resultado + 4 exacto
-                return 6;                      // Grupos (esquema viejo)
+                return 6;                      // Grupos
             }
 
             const resultadoPredicho = predLocal === predVisitante ? 0 : predLocal > predVisitante ? 1 : -1;
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
-            // Validación de resultado (ganador/empate)
+            // Ganador o empate sin marcador exacto
             if (resultadoPredicho === resultadoReal) {
+                if (fase === 'r8') return 8;
                 if (fase === 'r16') return 5;
                 if (fase === 'r32') return 4;
                 return 3;
@@ -349,7 +382,7 @@
 
                     puntosAcumulados[codigo] += puntos_partido;
 
-                    let esExactoPerfecto = (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
+                    let esExactoPerfecto = (fase === 'r8' && puntos_partido === 20) || (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
                     let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
                     const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
 
@@ -364,29 +397,49 @@
             return htmlHTML;
         }
 
+        function generarPestañaEspecial(prediccionesGrupos) {
+            document.getElementById('tabla-especial').innerHTML = Object.entries(diccionarioParticipantes).map(([codigo, nombre]) => {
+                let user_form = prediccionesGrupos.find(p => p.form_data.codigo_usuario?.toUpperCase() === codigo);
+                let campeon = user_form?.form_data?.Especial_Campeon || "—";
+                let subcampeon = user_form?.form_data?.Especial_Subcampeon || "—";
+                let tercero = user_form?.form_data?.Especial_Tercero || "—";
+                let cuarto = user_form?.form_data?.Especial_Cuarto || "—";
+                let bota = user_form?.form_data?.Especial_BotaOro || "—";
+                let balon = user_form?.form_data?.Especial_BalonOro || "—";
+                let guante = user_form?.form_data?.Especial_GuanteOro || "—";
+
+                return `<tr>
+                    <td><strong>${nombre}</strong></td>
+                    <td>${campeon}</td>
+                    <td>${subcampeon}</td>
+                    <td>${tercero}</td>
+                    <td>${cuarto}</td>
+                    <td><i>${bota}</i></td>
+                    <td><i>${balon}</i></td>
+                    <td><i>${guante}</i></td>
+                </tr>`;
+            }).join('');
+        }
+
         function inicializarDashboard() {
             Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
 
-            // Se ejecutan las funciones acumulando los puntos en un orden estricto
             const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGruposGlobal, 'grupos');
             const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, 'r32');
             const htmlR16 = procesarFase(partidosR16Global, prediccionesR16Global, 'r16');
+            const htmlR8 = procesarFase(partidosR8Global, prediccionesR8Global, 'r8');
 
-            // Render por defecto
             document.getElementById('lista-resultados').innerHTML = htmlGrupos;
 
-            // Gestión del menú dinámico de visualización
             document.getElementById('select-fase').addEventListener('change', function(e) {
-                if(e.target.value === 'grupos') {
-                    document.getElementById('lista-resultados').innerHTML = htmlGrupos;
-                } else if(e.target.value === 'r32') {
-                    document.getElementById('lista-resultados').innerHTML = htmlR32;
-                } else if(e.target.value === 'r16') {
-                    document.getElementById('lista-resultados').innerHTML = htmlR16;
-                }
+                if(e.target.value === 'grupos') document.getElementById('lista-resultados').innerHTML = htmlGrupos;
+                else if(e.target.value === 'r32') document.getElementById('lista-resultados').innerHTML = htmlR32;
+                else if(e.target.value === 'r16') document.getElementById('lista-resultados').innerHTML = htmlR16;
+                else if(e.target.value === 'r8') document.getElementById('lista-resultados').innerHTML = htmlR8;
             });
 
-            // Escalafón unificado
+            generarPestañaEspecial(prediccionesGruposGlobal);
+
             let ranking = Object.keys(diccionarioParticipantes)
                 .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
                 .sort((a, b) => b.puntos - a.puntos);
@@ -394,9 +447,7 @@
             let posicionActual = 1;
             const rankingConPosicion = ranking.map((j, i) => {
                 const hayEmpateConAnterior = i > 0 && ranking[i - 1].puntos === j.puntos;
-                if (!hayEmpateConAnterior) {
-                    posicionActual = i + 1;
-                }
+                if (!hayEmpateConAnterior) posicionActual = i + 1;
                 return { ...j, posicion: posicionActual };
             });
 
@@ -408,21 +459,24 @@
                 </tr>`).join('');
         }
 
-        // Carga en paralelo los 6 archivos fundamentales de datos
         Promise.all([
             fetch('predicciones_locales.json').then(res => res.json()),
             fetch('predicciones_locales2.json').then(res => res.json()).catch(() => []),
             fetch('predicciones_locales3.json').then(res => res.json()).catch(() => []),
+            fetch('predicciones_locales4.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales.json').then(res => res.json()),
             fetch('marcadores_reales2.json').then(res => res.json()).catch(() => []),
-            fetch('marcadores_reales3.json').then(res => res.json()).catch(() => [])
-        ]).then(([predGrupos, predR32, predR16, marcGrupos, marcR32, marcR16]) => {
+            fetch('marcadores_reales3.json').then(res => res.json()).catch(() => []),
+            fetch('marcadores_reales4.json').then(res => res.json()).catch(() => [])
+        ]).then(([predGrupos, predR32, predR16, predR8, marcGrupos, marcR32, marcR16, marcR8]) => {
             prediccionesGruposGlobal = predGrupos;
             prediccionesR32Global = predR32;
             prediccionesR16Global = predR16;
+            prediccionesR8Global = predR8;
             partidosGruposGlobal = marcGrupos;
             partidosR32Global = marcR32;
             partidosR16Global = marcR16;
+            partidosR8Global = marcR8;
             
             inicializarDashboard();
         }).catch(err => {
