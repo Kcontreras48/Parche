@@ -180,5 +180,31 @@
       "P_Argentina_vs_Switzerland_Local": "2",
       "P_Argentina_vs_Switzerland_Visitante": "0"
     }
+  },
+   {
+    "form_data": {
+      "codigo_usuario": "F1212",
+      "P_France_vs_Morocco_Local": "1",
+      "P_France_vs_Morocco_Visitante": "1",
+      "P_Spain_vs_Belgium_Local": "2",
+      "P_Spain_vs_Belgium_Visitante": "1",
+      "P_Norway_vs_England_Local": "2",
+      "P_Norway_vs_England_Visitante": "1",
+      "P_Argentina_vs_Switzerland_Local": "2",
+      "P_Argentina_vs_Switzerland_Visitante": "1"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "L1593",
+      "P_France_vs_Morocco_Local": "2",
+      "P_France_vs_Morocco_Visitante": "1",
+      "P_Spain_vs_Belgium_Local": "2",
+      "P_Spain_vs_Belgium_Visitante": "0",
+      "P_Norway_vs_England_Local": "2",
+      "P_Norway_vs_England_Visitante": "3",
+      "P_Argentina_vs_Switzerland_Local": "2",
+      "P_Argentina_vs_Switzerland_Visitante": "1"
+    }
   }
 ]
