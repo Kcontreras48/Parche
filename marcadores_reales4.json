@@ -1,0 +1,42 @@
+[
+    {
+        "titulo": "France vs Morocco",
+        "local_nombre": "France",
+        "visitante_nombre": "Morocco",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    },
+    {
+        "titulo": "Spain vs Belgium",
+        "local_nombre": "Spain",
+        "visitante_nombre": "Belgium",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    },
+    {
+        "titulo": "Norway vs England",
+        "local_nombre": "Norway",
+        "visitante_nombre": "England",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    },
+    {
+        "titulo": "Argentina vs Switzerland",
+        "local_nombre": "Argentina",
+        "visitante_nombre": "Switzerland",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    }
+]
