@@ -13,10 +13,10 @@
         "titulo": "Spain vs Belgium",
         "local_nombre": "Spain",
         "visitante_nombre": "Belgium",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "2 - 1",
+        "goles_L_real": 2,
+        "goles_V_real": 1,
+        "finalizado": true,
         "ultima_verificacion": 1783641600
     },
     {
