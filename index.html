@@ -279,7 +279,7 @@
             "K2468": "Daniel", "J3124": "Julian", "R0612": "Rocio", "O2010": "Oscar",
             "S2813": "Chape", "S0904": "Salo y Samu", "C7534": "Cristian", 
             "L1593": "Luz marina", "J2010": "Jorge", "S8152": "Tefita y Miriam", 
-            "F2345": "Kiko", "L0707": "Chuchin", "M0110": "Mateo y Erika", 
+            "L0707": "Chuchin", "M0110": "Mateo y Erika", 
             "E9877": "Efrita", "J1234": "Jesus", "F1212": "Flor", "M3467": "Ahijados"
         };
 
@@ -313,9 +313,9 @@
 
             // Marcador exacto por fase
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
-                if (fase === 'r8') return 20;  // 8 resultado + 12 exacto
-                if (fase === 'r16') return 12; // 5 resultado + 7 exacto
-                if (fase === 'r32') return 8;  // 4 resultado + 4 exacto
+                if (fase === 'r8') return 20;  // 8 partido + 12 extra
+                if (fase === 'r16') return 12; // 5 partido + 7 extra
+                if (fase === 'r32') return 8;  // 4 partido + 4 extra
                 return 6;                      // Grupos
             }
 
@@ -341,8 +341,15 @@
                 let loc_clean = normalizarNombre(partido.local_nombre);
                 let vis_clean = normalizarNombre(partido.visitante_nombre);
 
-                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
-                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
+                // ESTRATEGIA DE BÚSQUEDA FLEXIBLE DE COLUMNAS (Prueba ambos órdenes posibles de los dos equipos)
+                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local` || k.toLowerCase() === `p_${vis_clean}_vs_${loc_clean}_visitante`);
+                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante` || k.toLowerCase() === `p_${vis_clean}_vs_${loc_clean}_local`);
+
+                // Verificar si el formulario de origen vino con el orden de los equipos invertido
+                let estaInvertidoFormulario = false;
+                if (col_L && col_L.toLowerCase().startsWith(`p_${vis_clean}_vs_${loc_clean}`)) {
+                    estaInvertidoFormulario = true;
+                }
 
                 const estadoChip = partido.finalizado ? 'Marcador: ' + partido.marcador_real : '⚽ Partido por Jugar';
                 const chipClass = partido.finalizado ? '' : 'pending';
@@ -365,10 +372,14 @@
                     let pred_texto = "—";
 
                     if(formUser && col_L && col_V) {
-                        let p_L = parseInt(formUser.form_data[col_L]);
-                        let p_V = parseInt(formUser.form_data[col_V]);
+                        let raw_L = parseInt(formUser.form_data[col_L]);
+                        let raw_V = parseInt(formUser.form_data[col_V]);
 
-                        if(!isNaN(p_L) && !isNaN(p_V)) {
+                        if(!isNaN(raw_L) && !isNaN(raw_V)) {
+                            // Si la llave del formulario estaba invertida con respecto al marcador real, invertimos las variables de los goles leídos para el cálculo de puntos
+                            let p_L = estaInvertidoFormulario ? raw_V : raw_L;
+                            let p_V = estaInvertidoFormulario ? raw_L : raw_V;
+
                             pred_texto = `${p_L} - ${p_V}`;
                             puntos_partido = calcularPuntosPartido(
                                 p_L,
