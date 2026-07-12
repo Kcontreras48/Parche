@@ -15,7 +15,7 @@
             margin: 0;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: #1e1e1e;
             padding: 20px;
@@ -93,7 +93,7 @@
             border-color: #28a745;
         }
 
-        /* ESTILOS DE LAS TABLAS (CLASIFICACIÓN, AUDITORÍA Y ESPECIAL) */
+        /* ESTILOS DE LAS TABLAS */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -125,12 +125,12 @@
             background-color: #2e2e2e; 
         }
         
-        /* Estilos de las Posiciones del Podio */
+        /* Posiciones del Podio */
         .pos-1 { color: #ffd700; font-weight: bold; } 
         .pos-2 { color: #c0c0c0; font-weight: bold; } 
         .pos-3 { color: #cd7f32; font-weight: bold; } 
 
-        /* TARJETAS DE RESULTADOS REALES (CONTENEDORES) */
+        /* TARJETAS DE RESULTADOS REALES */
         .partido-card {
             background: #252525;
             margin-bottom: 14px;
@@ -195,6 +195,13 @@
             width: 100%;
             overflow-x: auto;
         }
+
+        /* Marcado de aciertos */
+        .acierto-especial {
+            color: #39d353;
+            font-weight: bold;
+            background: rgba(40, 167, 69, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -226,7 +233,6 @@
     </div>
 
     <div id="resultados-tab" class="tab-content">
-        <!-- MENÚ DESPLEGABLE POR RONDA -->
         <div class="selector-fase-container">
             <label for="select-fase"><strong>Filtrar Ronda:</strong></label>
             <select id="select-fase" class="selector-fase">
@@ -255,10 +261,11 @@
                         <th>Bota de Oro</th>
                         <th>Balón de Oro</th>
                         <th>Guante de Oro</th>
+                        <th class="centro">Pts Extra</th>
                     </tr>
                 </thead>
                 <tbody id="tabla-especial">
-                    <tr><td colspan="8" class="loading">Cargando elecciones especiales a largo plazo...</td></tr>
+                    <tr><td colspan="9" class="loading">Cargando elecciones especiales a largo plazo...</td></tr>
                 </tbody>
             </table>
         </div>
@@ -283,6 +290,16 @@
             "E9877": "Efrita", "J1234": "Jesus", "F1212": "Flor", "M3467": "Ahijados"
         };
 
+        // LISTA DE LOS 4 SEMIFINALISTAS CONFIRMADOS
+        const semifinalistasReales = ["francia", "espana", "inglaterra", "argentina"];
+
+        // PREMIOS INDIVIDUALES (Por definir al finalizar el torneo)
+        const premiosPredefinidos = {
+            "Especial_BotaOro": "Por definir",
+            "Especial_BalonOro": "Por definir",
+            "Especial_GuanteOro": "Por definir"
+        };
+
         const traductorEquipos = {
             "united states": "usa", "korea republic": "south korea", "czechia": "czech republic",
             "bosnia and herzegovina": "bosnia-herzegovina", "turkiye": "turkey",
@@ -299,6 +316,12 @@
         let prediccionesR16Global = [];
         let prediccionesR8Global = [];
         let puntosAcumulados = {};
+        let puntosEspecialesGlobal = {};
+
+        function normalizarTexto(txt) {
+            if (!txt) return "";
+            return txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+        }
 
         function normalizarNombre(nombre) {
             let n = nombre.toLowerCase().trim();
@@ -311,20 +334,18 @@
                 return 0;
             }
 
-            // Marcador exacto por fase
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
-                if (fase === 'r8') return 20;  // 8 partido + 12 extra
-                if (fase === 'r16') return 12; // 5 partido + 7 extra
-                if (fase === 'r32') return 8;  // 4 partido + 4 extra
-                return 6;                      // Grupos
+                if (fase === 'r8') return 20;  
+                if (fase === 'r16') return 12; 
+                if (fase === 'r32') return 8;  
+                return 6;                      
             }
 
             const resultadoPredicho = predLocal === predVisitante ? 0 : predLocal > predVisitante ? 1 : -1;
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
-            // Ganador o empate sin marcador exacto
             if (resultadoPredicho === resultadoReal) {
-                if (fase === 'r8') return 8;
+                if (fase === 'r8') return 8; 
                 if (fase === 'r16') return 5;
                 if (fase === 'r32') return 4;
                 return 3;
@@ -341,15 +362,8 @@
                 let loc_clean = normalizarNombre(partido.local_nombre);
                 let vis_clean = normalizarNombre(partido.visitante_nombre);
 
-                // ESTRATEGIA DE BÚSQUEDA FLEXIBLE DE COLUMNAS (Prueba ambos órdenes posibles de los dos equipos)
-                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local` || k.toLowerCase() === `p_${vis_clean}_vs_${loc_clean}_visitante`);
-                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante` || k.toLowerCase() === `p_${vis_clean}_vs_${loc_clean}_local`);
-
-                // Verificar si el formulario de origen vino con el orden de los equipos invertido
-                let estaInvertidoFormulario = false;
-                if (col_L && col_L.toLowerCase().startsWith(`p_${vis_clean}_vs_${loc_clean}`)) {
-                    estaInvertidoFormulario = true;
-                }
+                let col_L = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_local`);
+                let col_V = llavesFormulario.find(k => k.toLowerCase() === `p_${loc_clean}_vs_${vis_clean}_visitante`);
 
                 const estadoChip = partido.finalizado ? 'Marcador: ' + partido.marcador_real : '⚽ Partido por Jugar';
                 const chipClass = partido.finalizado ? '' : 'pending';
@@ -372,14 +386,10 @@
                     let pred_texto = "—";
 
                     if(formUser && col_L && col_V) {
-                        let raw_L = parseInt(formUser.form_data[col_L]);
-                        let raw_V = parseInt(formUser.form_data[col_V]);
+                        let p_L = parseInt(formUser.form_data[col_L]);
+                        let p_V = parseInt(formUser.form_data[col_V]);
 
-                        if(!isNaN(raw_L) && !isNaN(raw_V)) {
-                            // Si la llave del formulario estaba invertida con respecto al marcador real, invertimos las variables de los goles leídos para el cálculo de puntos
-                            let p_L = estaInvertidoFormulario ? raw_V : raw_L;
-                            let p_V = estaInvertidoFormulario ? raw_L : raw_V;
-
+                        if(!isNaN(p_L) && !isNaN(p_V)) {
                             pred_texto = `${p_L} - ${p_V}`;
                             puntos_partido = calcularPuntosPartido(
                                 p_L,
@@ -408,32 +418,58 @@
             return htmlHTML;
         }
 
-        function generarPestañaEspecial(prediccionesGrupos) {
-            document.getElementById('tabla-especial').innerHTML = Object.entries(diccionarioParticipantes).map(([codigo, nombre]) => {
-                let user_form = prediccionesGrupos.find(p => p.form_data.codigo_usuario?.toUpperCase() === codigo);
-                let campeon = user_form?.form_data?.Especial_Campeon || "—";
-                let subcampeon = user_form?.form_data?.Especial_Subcampeon || "—";
-                let tercero = user_form?.form_data?.Especial_Tercero || "—";
-                let cuarto = user_form?.form_data?.Especial_Cuarto || "—";
-                let bota = user_form?.form_data?.Especial_BotaOro || "—";
-                let balon = user_form?.form_data?.Especial_BalonOro || "—";
-                let guante = user_form?.form_data?.Especial_GuanteOro || "—";
+        function calcularYRenderizarEspecial(prediccionesGrupos) {
+            let tbodyHTML = '';
 
-                return `<tr>
+            Object.entries(diccionarioParticipantes).forEach(([codigo, nombre]) => {
+                let user_form = prediccionesGrupos.find(p => p.form_data.codigo_usuario?.toUpperCase() === codigo);
+                let ptsExtraUsuario = 0;
+
+                const llavesPodio = ["Especial_Campeon", "Especial_Subcampeon", "Especial_Tercero", "Especial_Cuarto"];
+                const llavesPremios = ["Especial_BotaOro", "Especial_BalonOro", "Especial_GuanteOro"];
+
+                // 1. Validar posiciones de podio cruzándolas con los 4 semifinalistas reales
+                let celdasPodioHTML = llavesPodio.map(llave => {
+                    let valorPredicho = user_form?.form_data[llave] || "—";
+                    let limpioPredicho = normalizarTexto(valorPredicho);
+
+                    if (semifinalistasReales.includes(limpioPredicho)) {
+                        ptsExtraUsuario += 15;
+                        return `<td class="acierto-especial">${valorPredicho} ✨</td>`;
+                    }
+                    return `<td>${valorPredicho}</td>`;
+                }).join('');
+
+                // 2. Validar premios individuales según se definan al final
+                let celdasPremiosHTML = llavesPremios.map(llave => {
+                    let valorPredicho = user_form?.form_data[llave] || "—";
+                    let valorReal = premiosPredefinidos[llave];
+
+                    if (valorReal !== "Por definir" && normalizarTexto(valorPredicho) === normalizarTexto(valorReal)) {
+                        ptsExtraUsuario += 15;
+                        return `<td class="acierto-especial">${valorPredicho} ✨</td>`;
+                    }
+                    return `<td><i>${valorPredicho}</i></td>`;
+                }).join('');
+
+                puntosEspecialesGlobal[codigo] = ptsExtraUsuario;
+
+                tbodyHTML += `<tr>
                     <td><strong>${nombre}</strong></td>
-                    <td>${campeon}</td>
-                    <td>${subcampeon}</td>
-                    <td>${tercero}</td>
-                    <td>${cuarto}</td>
-                    <td><i>${bota}</i></td>
-                    <td><i>${balon}</i></td>
-                    <td><i>${guante}</i></td>
+                    ${celdasPodioHTML}
+                    ${celdasPremiosHTML}
+                    <td class="centro" style="color:#39d353; font-weight:bold;">+${ptsExtraUsuario} pts</td>
                 </tr>`;
-            }).join('');
+            });
+
+            document.getElementById('tabla-especial').innerHTML = tbodyHTML;
         }
 
         function inicializarDashboard() {
-            Object.keys(diccionarioParticipantes).forEach(k => puntosAcumulados[k] = 0);
+            Object.keys(diccionarioParticipantes).forEach(k => {
+                puntosAcumulados[k] = 0;
+                puntosEspecialesGlobal[k] = 0;
+            });
 
             const htmlGrupos = procesarFase(partidosGruposGlobal, prediccionesGruposGlobal, 'grupos');
             const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, 'r32');
@@ -449,10 +485,13 @@
                 else if(e.target.value === 'r8') document.getElementById('lista-resultados').innerHTML = htmlR8;
             });
 
-            generarPestañaEspecial(prediccionesGruposGlobal);
+            calcularYRenderizarEspecial(prediccionesGruposGlobal);
 
             let ranking = Object.keys(diccionarioParticipantes)
-                .map(cod => ({codigo: cod, nombre: diccionarioParticipantes[cod], puntos: puntosAcumulados[cod]}))
+                .map(cod => {
+                    let totalPuntos = puntosAcumulados[cod] + puntosEspecialesGlobal[cod];
+                    return {codigo: cod, nombre: diccionarioParticipantes[cod], puntos: totalPuntos};
+                })
                 .sort((a, b) => b.puntos - a.puntos);
 
             let posicionActual = 1;
