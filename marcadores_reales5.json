@@ -1,1 +1,22 @@
-a
+[
+    {
+        "titulo": "France vs Spain",
+        "local_nombre": "France",
+        "visitante_nombre": "Spain",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    },
+    {
+        "titulo": "England vs Argentina",
+        "local_nombre": "England",
+        "visitante_nombre": "Argentina",
+        "marcador_real": "Por jugar",
+        "goles_L_real": null,
+        "goles_V_real": null,
+        "finalizado": false,
+        "ultima_verificacion": 1783641600
+    }
+]
