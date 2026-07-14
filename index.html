@@ -240,6 +240,7 @@
                 <option value="r32">Ronda de 32 (16avos)</option>
                 <option value="r16">Octavos de Final</option>
                 <option value="r8">Cuartos de Final</option>
+                <option value="sf">Semifinal</option>
             </select>
         </div>
 
@@ -286,7 +287,7 @@
             "K2468": "Daniel", "J3124": "Julian", "R0612": "Rocio", "O2010": "Oscar",
             "S2813": "Chape", "S0904": "Salo y Samu", "C7534": "Cristian", 
             "L1593": "Luz marina", "J2010": "Jorge", "S8152": "Tefita y Miriam", 
-            "F2345": "Kiko", "L0707": "Chuchin", "M0110": "Mateo y Erika", 
+            "L0707": "Chuchin", "M0110": "Mateo y Erika", 
             "E9877": "Efrita", "J1234": "Jesus", "F1212": "Flor", "M3467": "Ahijados"
         };
 
@@ -311,10 +312,12 @@
         let partidosR32Global = [];
         let partidosR16Global = [];
         let partidosR8Global = [];
+        let partidosSfGlobal = [];
         let prediccionesGruposGlobal = [];
         let prediccionesR32Global = [];
         let prediccionesR16Global = [];
         let prediccionesR8Global = [];
+        let prediccionesSfGlobal = [];
         let puntosAcumulados = {};
         let puntosEspecialesGlobal = {};
 
@@ -335,6 +338,7 @@
             }
 
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
+                if (fase === 'sf') return 30;   // 12 resultado + 18 exacto
                 if (fase === 'r8') return 20;  
                 if (fase === 'r16') return 12; 
                 if (fase === 'r32') return 8;  
@@ -345,6 +349,7 @@
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
             if (resultadoPredicho === resultadoReal) {
+                if (fase === 'sf') return 12;   // +12 por acertar tendencia
                 if (fase === 'r8') return 8; 
                 if (fase === 'r16') return 5;
                 if (fase === 'r32') return 4;
@@ -403,7 +408,7 @@
 
                     puntosAcumulados[codigo] += puntos_partido;
 
-                    let esExactoPerfecto = (fase === 'r8' && puntos_partido === 20) || (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
+                    let esExactoPerfecto = (fase === 'sf' && puntos_partido === 30) || (fase === 'r8' && puntos_partido === 20) || (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
                     let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
                     const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
 
@@ -428,7 +433,6 @@
                 const llavesPodio = ["Especial_Campeon", "Especial_Subcampeon", "Especial_Tercero", "Especial_Cuarto"];
                 const llavesPremios = ["Especial_BotaOro", "Especial_BalonOro", "Especial_GuanteOro"];
 
-                // 1. Validar posiciones de podio cruzándolas con los 4 semifinalistas reales
                 let celdasPodioHTML = llavesPodio.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let limpioPredicho = normalizarTexto(valorPredicho);
@@ -440,7 +444,6 @@
                     return `<td>${valorPredicho}</td>`;
                 }).join('');
 
-                // 2. Validar premios individuales según se definan al final
                 let celdasPremiosHTML = llavesPremios.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let valorReal = premiosPredefinidos[llave];
@@ -475,6 +478,7 @@
             const htmlR32 = procesarFase(partidosR32Global, prediccionesR32Global, 'r32');
             const htmlR16 = procesarFase(partidosR16Global, prediccionesR16Global, 'r16');
             const htmlR8 = procesarFase(partidosR8Global, prediccionesR8Global, 'r8');
+            const htmlSf = procesarFase(partidosSfGlobal, prediccionesSfGlobal, 'sf');
 
             document.getElementById('lista-resultados').innerHTML = htmlGrupos;
 
@@ -483,6 +487,7 @@
                 else if(e.target.value === 'r32') document.getElementById('lista-resultados').innerHTML = htmlR32;
                 else if(e.target.value === 'r16') document.getElementById('lista-resultados').innerHTML = htmlR16;
                 else if(e.target.value === 'r8') document.getElementById('lista-resultados').innerHTML = htmlR8;
+                else if(e.target.value === 'sf') document.getElementById('lista-resultados').innerHTML = htmlSf;
             });
 
             calcularYRenderizarEspecial(prediccionesGruposGlobal);
@@ -514,19 +519,23 @@
             fetch('predicciones_locales2.json').then(res => res.json()).catch(() => []),
             fetch('predicciones_locales3.json').then(res => res.json()).catch(() => []),
             fetch('predicciones_locales4.json').then(res => res.json()).catch(() => []),
+            fetch('predicciones_locales5.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales.json').then(res => res.json()),
             fetch('marcadores_reales2.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales3.json').then(res => res.json()).catch(() => []),
-            fetch('marcadores_reales4.json').then(res => res.json()).catch(() => [])
-        ]).then(([predGrupos, predR32, predR16, predR8, marcGrupos, marcR32, marcR16, marcR8]) => {
+            fetch('marcadores_reales4.json').then(res => res.json()).catch(() => []),
+            fetch('marcadores_reales5.json').then(res => res.json()).catch(() => [])
+        ]).then(([predGrupos, predR32, predR16, predR8, predSf, marcGrupos, marcR32, marcR16, marcR8, marcSf]) => {
             prediccionesGruposGlobal = predGrupos;
             prediccionesR32Global = predR32;
             prediccionesR16Global = predR16;
             prediccionesR8Global = predR8;
+            prediccionesSfGlobal = predSf;
             partidosGruposGlobal = marcGrupos;
             partidosR32Global = marcR32;
             partidosR16Global = marcR16;
             partidosR8Global = marcR8;
+            partidosSfGlobal = marcSf;
             
             inicializarDashboard();
         }).catch(err => {
