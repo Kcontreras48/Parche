@@ -151,5 +151,14 @@
       "P_England_vs_Argentina_Local": "2",
       "P_England_vs_Argentina_Visitante": "1"
     }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "F2345",
+      "P_France_vs_Spain_Local": "3",
+      "P_France_vs_Spain_Visitante": "1",
+      "P_England_vs_Argentina_Local": "1",
+      "P_England_vs_Argentina_Visitante": "3"
+    }
   }
 ]
