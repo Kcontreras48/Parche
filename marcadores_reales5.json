@@ -3,10 +3,10 @@
         "titulo": "France vs Spain",
         "local_nombre": "France",
         "visitante_nombre": "Spain",
-        "marcador_real": "Por jugar",
-        "goles_L_real": null,
-        "goles_V_real": null,
-        "finalizado": false,
+        "marcador_real": "0 - 2",
+        "goles_L_real": 0,
+        "goles_V_real": 2,
+        "finalizado": true,
         "ultima_verificacion": 1783641600
     },
     {
