@@ -221,13 +221,14 @@
         <table>
             <thead>
                 <tr>
-                    <th class="centro" style="width: 15%;">Posición</th>
-                    <th style="width: 65%;">Participante</th>
+                    <th class="centro" style="width: 12%;">Posición</th>
+                    <th style="width: 43%;">Participante</th>
                     <th class="centro" style="width: 20%;">Puntos Totales</th>
+                    <th class="centro" style="width: 25%;">A cuanto estan de alcanzar premio</th>
                 </tr>
             </thead>
             <tbody id="tabla-clasificacion">
-                <tr><td colspan="3" class="loading">Cargando clasificación general...</td></tr>
+                <tr><td colspan="4" class="loading">Cargando clasificación general...</td></tr>
             </tbody>
         </table>
     </div>
@@ -291,10 +292,8 @@
             "E9877": "Efrita", "J1234": "Jesus", "F1212": "Flor", "M3467": "Ahijados"
         };
 
-        // LISTA DE LOS 4 SEMIFINALISTAS CONFIRMADOS
         const semifinalistasReales = ["francia", "espana", "inglaterra", "argentina"];
 
-        // PREMIOS INDIVIDUALES (Por definir al finalizar el torneo)
         const premiosPredefinidos = {
             "Especial_BotaOro": "Por definir",
             "Especial_BalonOro": "Por definir",
@@ -338,7 +337,7 @@
             }
 
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
-                if (fase === 'sf') return 30;   // 12 resultado + 18 exacto
+                if (fase === 'sf') return 30;   
                 if (fase === 'r8') return 20;  
                 if (fase === 'r16') return 12; 
                 if (fase === 'r32') return 8;  
@@ -349,7 +348,7 @@
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
             if (resultadoPredicho === resultadoReal) {
-                if (fase === 'sf') return 12;   // +12 por acertar tendencia
+                if (fase === 'sf') return 12;   
                 if (fase === 'r8') return 8; 
                 if (fase === 'r16') return 5;
                 if (fase === 'r32') return 4;
@@ -492,25 +491,41 @@
 
             calcularYRenderizarEspecial(prediccionesGruposGlobal);
 
-            let ranking = Object.keys(diccionarioParticipantes)
+            // 1. Obtener la lista preliminar ordenada para identificar la tercera posición (Zona de premio)
+            let rankingInicial = Object.keys(diccionarioParticipantes)
                 .map(cod => {
                     let totalPuntos = puntosAcumulados[cod] + puntosEspecialesGlobal[cod];
                     return {codigo: cod, nombre: diccionarioParticipantes[cod], puntos: totalPuntos};
                 })
                 .sort((a, b) => b.puntos - a.puntos);
 
+            // Identificar los puntos que tiene el participante que está de 3.º
+            // (Si hay menos de 3 participantes por algún motivo, el umbral es el mínimo puntaje)
+            const puntosDelTercero = rankingInicial.length >= 3 ? rankingInicial[2].puntos : rankingInicial[rankingInicial.length - 1].puntos;
+
+            // 2. Volver a armar la estructura sumando la posición real y calculando las distancias
             let posicionActual = 1;
-            const rankingConPosicion = ranking.map((j, i) => {
-                const hayEmpateConAnterior = i > 0 && ranking[i - 1].puntos === j.puntos;
+            const rankingFinal = rankingInicial.map((j, i) => {
+                const hayEmpateConAnterior = i > 0 && rankingInicial[i - 1].puntos === j.puntos;
                 if (!hayEmpateConAnterior) posicionActual = i + 1;
-                return { ...j, posicion: posicionActual };
+
+                let distanciaAlPremioTexto = "";
+                if (posicionActual <= 3) {
+                    distanciaAlPremioTexto = `<span style="color:#ffd700; font-size:12px;">En zona de premio 🏆</span>`;
+                } else {
+                    const dif = puntosDelTercero - j.puntos;
+                    distanciaAlPremioTexto = `<span style="color:#ff6b6b; font-weight:bold;">-${dif} pts</span>`;
+                }
+
+                return { ...j, posicion: posicionActual, distanciaTexto: distanciaAlPremioTexto };
             });
 
-            document.getElementById('tabla-clasificacion').innerHTML = rankingConPosicion.map((j) => `
+            document.getElementById('tabla-clasificacion').innerHTML = rankingFinal.map((j) => `
                 <tr>
                     <td class="centro ${j.posicion <= 3 ? 'pos-' + j.posicion : ''}">${j.posicion}</td>
                     <td><strong>${j.nombre}</strong></td>
                     <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td>
+                    <td class="centro">${j.distanciaTexto}</td>
                 </tr>`).join('');
         }
 
