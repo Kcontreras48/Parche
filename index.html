@@ -125,10 +125,11 @@
             background-color: #2e2e2e; 
         }
         
-        /* Posiciones del Podio */
-        .pos-1 { color: #ffd700; font-weight: bold; } 
-        .pos-2 { color: #c0c0c0; font-weight: bold; } 
-        .pos-3 { color: #cd7f32; font-weight: bold; } 
+        /* Posiciones del Podio y Colores Clave */
+        .pos-1 { color: #ffd700 !important; font-weight: bold; } 
+        .pos-2 { color: #c0c0c0 !important; font-weight: bold; } 
+        .pos-3 { color: #cd7f32 !important; font-weight: bold; } 
+        .pos-4 { color: #a05a2c !important; font-weight: bold; } 
 
         /* TARJETAS DE RESULTADOS REALES */
         .partido-card {
@@ -326,7 +327,7 @@
         }
 
         function normalizarNombre(nombre) {
-            let n = nombre.toLowerCase().trim();
+            let n = text = nombre.toLowerCase().trim();
             if(traductorEquipos[n]) n = traductorEquipos[n];
             return n.replace(/ /g, '_');
         }
@@ -491,7 +492,7 @@
 
             calcularYRenderizarEspecial(prediccionesGruposGlobal);
 
-            // 1. Obtener la lista preliminar ordenada para identificar la tercera posición (Zona de premio)
+            // 1. Obtener la lista preliminar ordenada
             let rankingInicial = Object.keys(diccionarioParticipantes)
                 .map(cod => {
                     let totalPuntos = puntosAcumulados[cod] + puntosEspecialesGlobal[cod];
@@ -499,22 +500,26 @@
                 })
                 .sort((a, b) => b.puntos - a.puntos);
 
-            // Identificar los puntos que tiene el participante que está de 3.º
-            // (Si hay menos de 3 participantes por algún motivo, el umbral es el mínimo puntaje)
+            // Obtener puntuación del 3er participante (Corte del podio)
             const puntosDelTercero = rankingInicial.length >= 3 ? rankingInicial[2].puntos : rankingInicial[rankingInicial.length - 1].puntos;
 
-            // 2. Volver a armar la estructura sumando la posición real y calculando las distancias
+            // 2. Armar estructura de clasificación final calculando posiciones correctas y distancias
             let posicionActual = 1;
             const rankingFinal = rankingInicial.map((j, i) => {
                 const hayEmpateConAnterior = i > 0 && rankingInicial[i - 1].puntos === j.puntos;
                 if (!hayEmpateConAnterior) posicionActual = i + 1;
 
                 let distanciaAlPremioTexto = "";
-                if (posicionActual <= 3) {
-                    distanciaAlPremioTexto = `<span style="color:#ffd700; font-size:12px;">En zona de premio 🏆</span>`;
+                if (posicionActual === 1) {
+                    distanciaAlPremioTexto = `<span class="pos-1">En zona de premio 🏆</span>`;
+                } else if (posicionActual === 2) {
+                    distanciaAlPremioTexto = `<span class="pos-2">En zona de premio 🏆</span>`;
+                } else if (posicionActual === 3) {
+                    distanciaAlPremioTexto = `<span class="pos-3">En zona de premio 🏆</span>`;
                 } else {
-                    const dif = puntosDelTercero - j.puntos;
-                    distanciaAlPremioTexto = `<span style="color:#ff6b6b; font-weight:bold;">-${dif} pts</span>`;
+                    // Diferencia absoluta (sin signo negativo)
+                    const dif = Math.abs(puntosDelTercero - j.puntos);
+                    distanciaAlPremioTexto = `<span style="color:#ff6b6b; font-weight:bold;">${dif} pts</span>`;
                 }
 
                 return { ...j, posicion: posicionActual, distanciaTexto: distanciaAlPremioTexto };
@@ -522,7 +527,7 @@
 
             document.getElementById('tabla-clasificacion').innerHTML = rankingFinal.map((j) => `
                 <tr>
-                    <td class="centro ${j.posicion <= 3 ? 'pos-' + j.posicion : ''}">${j.posicion}</td>
+                    <td class="centro ${j.posicion <= 4 ? 'pos-' + j.posicion : ''}">${j.posicion}</td>
                     <td><strong>${j.nombre}</strong></td>
                     <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td>
                     <td class="centro">${j.distanciaTexto}</td>
