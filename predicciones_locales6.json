@@ -70,5 +70,14 @@
       "P_Spain_vs_Argentina_Local": "0",
       "P_Spain_vs_Argentina_Visitante": "1"
     }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "R0612",
+      "P_France_vs_England_Local": "1",
+      "P_France_vs_England_Visitante": "0",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "2"
+    }
   }
 ]
