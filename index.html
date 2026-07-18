@@ -243,6 +243,7 @@
                 <option value="r16">Octavos de Final</option>
                 <option value="r8">Cuartos de Final</option>
                 <option value="sf">Semifinal</option>
+                <option value="fn">Fase Final</option>
             </select>
         </div>
 
@@ -313,11 +314,13 @@
         let partidosR16Global = [];
         let partidosR8Global = [];
         let partidosSfGlobal = [];
+        let partidosFnGlobal = [];
         let prediccionesGruposGlobal = [];
         let prediccionesR32Global = [];
         let prediccionesR16Global = [];
         let prediccionesR8Global = [];
         let prediccionesSfGlobal = [];
+        let prediccionesFnGlobal = [];
         let puntosAcumulados = {};
         let puntosEspecialesGlobal = {};
 
@@ -327,7 +330,7 @@
         }
 
         function normalizarNombre(nombre) {
-            let n = text = nombre.toLowerCase().trim();
+            let n = nombre.toLowerCase().trim();
             if(traductorEquipos[n]) n = traductorEquipos[n];
             return n.replace(/ /g, '_');
         }
@@ -338,6 +341,7 @@
             }
 
             if (predLocal === golesLocalReal && predVisitante === golesVisitanteReal) {
+                if (fase === 'fn') return 50;   // 20 tendencia + 30 exacto
                 if (fase === 'sf') return 30;   
                 if (fase === 'r8') return 20;  
                 if (fase === 'r16') return 12; 
@@ -349,6 +353,7 @@
             const resultadoReal = golesLocalReal === golesVisitanteReal ? 0 : golesLocalReal > golesVisitanteReal ? 1 : -1;
 
             if (resultadoPredicho === resultadoReal) {
+                if (fase === 'fn') return 20;   // +20 por acertar tendencia
                 if (fase === 'sf') return 12;   
                 if (fase === 'r8') return 8; 
                 if (fase === 'r16') return 5;
@@ -408,7 +413,7 @@
 
                     puntosAcumulados[codigo] += puntos_partido;
 
-                    let esExactoPerfecto = (fase === 'sf' && puntos_partido === 30) || (fase === 'r8' && puntos_partido === 20) || (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
+                    let esExactoPerfecto = (fase === 'fn' && puntos_partido === 50) || (fase === 'sf' && puntos_partido === 30) || (fase === 'r8' && puntos_partido === 20) || (fase === 'r16' && puntos_partido === 12) || (fase === 'r32' && puntos_partido === 8) || (fase === 'grupos' && puntos_partido === 6);
                     let estiloFila = esExactoPerfecto ? 'style="font-weight:bold; color:#ffd700; background: rgba(40,167,69,0.08);"' : '';
                     const colorPuntosVistoso = puntos_partido > 0 ? '#39d353' : '#888888';
 
@@ -479,6 +484,7 @@
             const htmlR16 = procesarFase(partidosR16Global, prediccionesR16Global, 'r16');
             const htmlR8 = procesarFase(partidosR8Global, prediccionesR8Global, 'r8');
             const htmlSf = procesarFase(partidosSfGlobal, prediccionesSfGlobal, 'sf');
+            const htmlFn = procesarFase(partidosFnGlobal, prediccionesFnGlobal, 'fn');
 
             document.getElementById('lista-resultados').innerHTML = htmlGrupos;
 
@@ -488,6 +494,7 @@
                 else if(e.target.value === 'r16') document.getElementById('lista-resultados').innerHTML = htmlR16;
                 else if(e.target.value === 'r8') document.getElementById('lista-resultados').innerHTML = htmlR8;
                 else if(e.target.value === 'sf') document.getElementById('lista-resultados').innerHTML = htmlSf;
+                else if(e.target.value === 'fn') document.getElementById('lista-resultados').innerHTML = htmlFn;
             });
 
             calcularYRenderizarEspecial(prediccionesGruposGlobal);
@@ -500,7 +507,6 @@
                 })
                 .sort((a, b) => b.puntos - a.puntos);
 
-            // Obtener puntuación del 3er participante (Corte del podio)
             const puntosDelTercero = rankingInicial.length >= 3 ? rankingInicial[2].puntos : rankingInicial[rankingInicial.length - 1].puntos;
 
             // 2. Armar estructura de clasificación final calculando posiciones correctas y distancias
@@ -517,7 +523,6 @@
                 } else if (posicionActual === 3) {
                     distanciaAlPremioTexto = `<span class="pos-3">En zona de premio 🏆</span>`;
                 } else {
-                    // Diferencia absoluta (sin signo negativo)
                     const dif = Math.abs(puntosDelTercero - j.puntos);
                     distanciaAlPremioTexto = `<span style="color:#ff6b6b; font-weight:bold;">${dif} pts</span>`;
                 }
@@ -540,22 +545,26 @@
             fetch('predicciones_locales3.json').then(res => res.json()).catch(() => []),
             fetch('predicciones_locales4.json').then(res => res.json()).catch(() => []),
             fetch('predicciones_locales5.json').then(res => res.json()).catch(() => []),
+            fetch('predicciones_locales6.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales.json').then(res => res.json()),
             fetch('marcadores_reales2.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales3.json').then(res => res.json()).catch(() => []),
             fetch('marcadores_reales4.json').then(res => res.json()).catch(() => []),
-            fetch('marcadores_reales5.json').then(res => res.json()).catch(() => [])
-        ]).then(([predGrupos, predR32, predR16, predR8, predSf, marcGrupos, marcR32, marcR16, marcR8, marcSf]) => {
+            fetch('marcadores_reales5.json').then(res => res.json()).catch(() => []),
+            fetch('marcadores_reales6.json').then(res => res.json()).catch(() => [])
+        ]).then(([predGrupos, predR32, predR16, predR8, predSf, predFn, marcGrupos, marcR32, marcR16, marcR8, marcSf, marcFn]) => {
             prediccionesGruposGlobal = predGrupos;
             prediccionesR32Global = predR32;
             prediccionesR16Global = predR16;
             prediccionesR8Global = predR8;
             prediccionesSfGlobal = predSf;
+            prediccionesFnGlobal = predFn;
             partidosGruposGlobal = marcGrupos;
             partidosR32Global = marcR32;
             partidosR16Global = marcR16;
             partidosR8Global = marcR8;
             partidosSfGlobal = marcSf;
+            partidosFnGlobal = marcFn;
             
             inicializarDashboard();
         }).catch(err => {
