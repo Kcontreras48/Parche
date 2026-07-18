@@ -1,0 +1,74 @@
+[
+  {
+    "form_data": {
+      "codigo_usuario": "K2468",
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "1"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "O2010",
+      "P_France_vs_England_Local": "1",
+      "P_France_vs_England_Visitante": "2",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "1"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "L0707",
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "2"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "C7534",
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "1"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "J1234",
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "1",
+      "P_Spain_vs_Argentina_Visitante": "2"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "s0904",
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "11",
+      "P_Spain_vs_Argentina_Local": "2",
+      "P_Spain_vs_Argentina_Visitante": "2"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "J3124",
+      "P_France_vs_England_Local": "1",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "3",
+      "P_Spain_vs_Argentina_Visitante": "1"
+    }
+  },
+  {
+    "form_data": {
+      "codigo_usuario": "M4367",
+      "P_France_vs_England_Local": "1",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "0",
+      "P_Spain_vs_Argentina_Visitante": "1"
+    }
+  }
+]
