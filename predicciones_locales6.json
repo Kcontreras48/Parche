@@ -110,10 +110,10 @@
   {
     "form_data": {
       "codigo_usuario": "J2010",
-      "P_France_vs_England_Local": "",
-      "P_France_vs_England_Visitante": "",
-      "P_Spain_vs_Argentina_Local": "",
-      "P_Spain_vs_Argentina_Visitante": ""
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "0",
+      "P_Spain_vs_Argentina_Visitante": "0"
     }
   },
   {
@@ -137,10 +137,10 @@
   {
     "form_data": {
       "codigo_usuario": "S8152",
-      "P_France_vs_England_Local": "",
-      "P_France_vs_England_Visitante": "",
-      "P_Spain_vs_Argentina_Local": "",
-      "P_Spain_vs_Argentina_Visitante": ""
+      "P_France_vs_England_Local": "2",
+      "P_France_vs_England_Visitante": "1",
+      "P_Spain_vs_Argentina_Local": "2",
+      "P_Spain_vs_Argentina_Visitante": "2"
     }
   },
   {
