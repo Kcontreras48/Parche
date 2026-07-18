@@ -1,0 +1,20 @@
+[
+  {
+    "titulo": "Tercer Puesto: France vs England",
+    "local_nombre": "France",
+    "visitante_nombre": "England",
+    "finalizado": false,
+    "marcador_real": "—",
+    "goles_L_real": 0,
+    "goles_V_real": 0
+  },
+  {
+    "titulo": "Final: Spain vs Argentina",
+    "local_nombre": "Spain",
+    "visitante_nombre": "Argentina",
+    "finalizado": false,
+    "marcador_real": "—",
+    "goles_L_real": 0,
+    "goles_V_real": 0
+  }
+]
