@@ -12,8 +12,8 @@
     "titulo": "Final: Spain vs Argentina",
     "local_nombre": "Spain",
     "visitante_nombre": "Argentina",
-    "finalizado": false,
-    "marcador_real": "Por jugar",
+    "finalizado": true,
+    "marcador_real": "0 - 0",
     "goles_L_real": 0,
     "goles_V_real": 0
   }
