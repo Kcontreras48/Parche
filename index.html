@@ -304,13 +304,13 @@
         const semifinalistasReales = ["francia", "espana", "inglaterra", "argentina"];
 
         const premiosPredefinidos = {
-            "Especial_Campeon": "Por definir",
-            "Especial_Subcampeon": "Por definir",
+            "Especial_Campeon": "España",
+            "Especial_Subcampeon": "Argentina",
             "Especial_Tercero": "Inglaterra",
             "Especial_Cuarto": "Francia",
-            "Especial_BotaOro": "Por definir",
-            "Especial_BalonOro": "Por definir",
-            "Especial_GuanteOro": "Por definir"
+            "Especial_BotaOro": "Kylian Mbappe",
+            "Especial_BalonOro": "Rodrigo Hernandez",
+            "Especial_GuanteOro": "Unai Simon"
         };
 
         const traductorEquipos = {
@@ -449,24 +449,24 @@
                 const llavesPodio = ["Especial_Campeon", "Especial_Subcampeon", "Especial_Tercero", "Especial_Cuarto"];
                 const llavesPremios = ["Especial_BotaOro", "Especial_BalonOro", "Especial_GuanteOro"];
 
+                // 1. Evaluación del Podio (+15 semis, +10 posición exacta)
                 let celdasPodioHTML = llavesPodio.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let limpioPredicho = normalizarTexto(valorPredicho);
 
                     let aciertoSemifinal = semifinalistasReales.includes(limpioPredicho);
                     if (aciertoSemifinal) {
-                        ptsExtraUsuario += 15;
+                        ptsExtraUsuario += 15; 
                     }
 
                     let aciertoPosicionExacta = false;
                     let valorRealOficial = premiosPredefinidos[llave];
-                    if (valorRealOficial !== "Por definir" && limpioPredicho === normalizarTexto(valorRealOficial)) {
-                        ptsExtraUsuario += 10;
+                    if (valorRealOficial && limpioPredicho === normalizarTexto(valorRealOficial)) {
+                        ptsExtraUsuario += 10; 
                         aciertoPosicionExacta = true;
                     }
 
                     if (aciertoPosicionExacta) {
-                        // Resaltado en Dorado brillante para los aciertos de posición definitivos
                         return `<td class="acierto-exacto-dorado" style="border: 2px solid #ffd700;">${valorPredicho} ⭐🎯</td>`;
                     } else if (aciertoSemifinal) {
                         return `<td class="acierto-especial">${valorPredicho} ✨</td>`;
@@ -474,13 +474,14 @@
                     return `<td>${valorPredicho}</td>`;
                 }).join('');
 
+                // 2. Evaluación de Premios Individuales (+30 oficiales por jugador)
                 let celdasPremiosHTML = llavesPremios.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let valorReal = premiosPredefinidos[llave];
 
-                    if (valorReal !== "Por definir" && normalizarTexto(valorPredicho) === normalizarTexto(valorReal)) {
-                        ptsExtraUsuario += 15;
-                        return `<td class="acierto-especial">${valorPredicho} ✨</td>`;
+                    if (valorReal && normalizarTexto(valorPredicho) === normalizarTexto(valorReal)) {
+                        ptsExtraUsuario += 30; // CORREGIDO: Ahora suma +30 oficiales por acierto de jugador
+                        return `<td class="acierto-exacto-dorado" style="border: 2px solid #ffd700;">${valorPredicho} 🎯🏃‍♂️</td>`;
                     }
                     return `<td><i>${valorPredicho}</i></td>`;
                 }).join('');
@@ -491,7 +492,7 @@
                     <td><strong>${nombre}</strong></td>
                     ${celdasPodioHTML}
                     ${celdasPremiosHTML}
-                    <td class="centro" style="color:#39d353; font-weight:bold;">+${ptsExtraUsuario} pts</td>
+                    <td class="centro" style="color:#ffd700; font-weight:bold; text-shadow: 0 0 4px rgba(255,215,0,0.2);">+${ptsExtraUsuario} pts</td>
                 </tr>`;
             });
 
@@ -528,7 +529,7 @@
             let rankingInicial = Object.keys(diccionarioParticipantes)
                 .map(cod => {
                     let totalPuntos = puntosAcumulados[cod] + puntosEspecialesGlobal[cod];
-                    return {codigo: cod, merge: diccionarioParticipantes[cod], puntos: totalPuntos};
+                    return {codigo: cod, puntos: totalPuntos};
                 })
                 .sort((a, b) => b.puntos - a.puntos);
 
