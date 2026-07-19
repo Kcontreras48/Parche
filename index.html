@@ -203,6 +203,13 @@
             font-weight: bold;
             background: rgba(40, 167, 69, 0.15);
         }
+
+        /* Acierto exacto con color dorado */
+        .acierto-exacto-dorado {
+            color: #ffd700;
+            font-weight: bold;
+            background: rgba(255, 215, 0, 0.12);
+        }
     </style>
 </head>
 <body>
@@ -296,7 +303,6 @@
 
         const semifinalistasReales = ["francia", "espana", "inglaterra", "argentina"];
 
-        // ASIGNACIÓN OFICIAL DE PUESTOS DEFINIDOS (3.º y 4.º puesto)
         const premiosPredefinidos = {
             "Especial_Campeon": "Por definir",
             "Especial_Subcampeon": "Por definir",
@@ -443,18 +449,15 @@
                 const llavesPodio = ["Especial_Campeon", "Especial_Subcampeon", "Especial_Tercero", "Especial_Cuarto"];
                 const llavesPremios = ["Especial_BotaOro", "Especial_BalonOro", "Especial_GuanteOro"];
 
-                // Evaluación del Podio (15 puntos si está entre los semifinalistas)
                 let celdasPodioHTML = llavesPodio.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let limpioPredicho = normalizarTexto(valorPredicho);
 
-                    // Puntos base por clasificar a semifinales (15 pts)
                     let aciertoSemifinal = semifinalistasReales.includes(limpioPredicho);
                     if (aciertoSemifinal) {
                         ptsExtraUsuario += 15;
                     }
 
-                    // REGLA NUEVA: +10 puntos adicionales por posición exacta del 3.° o 4.° lugar
                     let aciertoPosicionExacta = false;
                     let valorRealOficial = premiosPredefinidos[llave];
                     if (valorRealOficial !== "Por definir" && limpioPredicho === normalizarTexto(valorRealOficial)) {
@@ -463,14 +466,14 @@
                     }
 
                     if (aciertoPosicionExacta) {
-                        return `<td class="acierto-especial" style="border: 2px solid #28a745;">${valorPredicho} ⭐🎯</td>`;
+                        // Resaltado en Dorado brillante para los aciertos de posición definitivos
+                        return `<td class="acierto-exacto-dorado" style="border: 2px solid #ffd700;">${valorPredicho} ⭐🎯</td>`;
                     } else if (aciertoSemifinal) {
                         return `<td class="acierto-especial">${valorPredicho} ✨</td>`;
                     }
                     return `<td>${valorPredicho}</td>`;
                 }).join('');
 
-                // Evaluación de Premios Individuales (15 pts por acierto)
                 let celdasPremiosHTML = llavesPremios.map(llave => {
                     let valorPredicho = user_form?.form_data[llave] || "—";
                     let valorReal = premiosPredefinidos[llave];
@@ -525,7 +528,7 @@
             let rankingInicial = Object.keys(diccionarioParticipantes)
                 .map(cod => {
                     let totalPuntos = puntosAcumulados[cod] + puntosEspecialesGlobal[cod];
-                    return {codigo: cod, nombre: diccionarioParticipantes[cod], puntos: totalPuntos};
+                    return {codigo: cod, merge: diccionarioParticipantes[cod], puntos: totalPuntos};
                 })
                 .sort((a, b) => b.puntos - a.puntos);
 
@@ -555,7 +558,7 @@
             document.getElementById('tabla-clasificacion').innerHTML = rankingFinal.map((j) => `
                 <tr>
                     <td class="centro ${j.posicion <= 4 ? 'pos-' + j.posicion : ''}">${j.posicion}</td>
-                    <td><strong>${j.nombre}</strong></td>
+                    <td><strong>${diccionarioParticipantes[j.codigo]}</strong></td>
                     <td class="centro" style="color:#28a745; font-weight:bold;">${j.puntos} pts</td>
                     <td class="centro">${j.distanciaTexto}</td>
                 </tr>`).join('');
